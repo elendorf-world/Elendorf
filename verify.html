@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Верификация администрации — Elendorf</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0f14;
+            --bg-secondary: #111720;
+            --card: #151c25;
+            --card-hover: #19222d;
+            --border: #29333f;
+            --text: #f3f6f9;
+            --muted: #929daa;
+            --blue: #58a6ff;
+            --green: #3fb950;
+            --green-light: #6ee779;
+            --danger: #f85149;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(88,166,255,.08),
+                    transparent 38%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.55;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            height: 70px;
+            padding: 0 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(13,17,23,.92);
+            border-bottom: 1px solid var(--border);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 9px 15px;
+
+            border-radius: 9px;
+
+            border: 1px solid var(--border);
+
+            background: #131a22;
+
+            color: #d9e0e7;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .header-button:hover {
+            background: #1b2530;
+            border-color: #3b4652;
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            width: min(1050px, 92%);
+            margin: 0 auto;
+            padding: 55px 0 70px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .shield {
+            width: 75px;
+            height: 75px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1c2834,
+                    #111820
+                );
+
+            border: 1px solid #34404c;
+
+            font-size: 34px;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,.25);
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 44px);
+            font-weight: 850;
+            letter-spacing: -.8px;
+
+            margin-bottom: 13px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto;
+
+            color: var(--muted);
+
+            font-size: 16px;
+        }
+
+        /* =========================
+           INFORMATION CARD
+        ========================= */
+
+        .info-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 25px 27px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 12px 40px rgba(0,0,0,.14);
+        }
+
+        .info-card h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #aab3bd;
+        }
+
+        /* =========================
+           ADMINISTRATION
+        ========================= */
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 25px;
+        }
+
+        .section-title h2 {
+            font-size: 29px;
+            margin-bottom: 7px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        .admins {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        /* =========================
+           ADMIN CARD
+        ========================= */
+
+        .admin-card {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171f28,
+                    #11171e
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 27px;
+
+            overflow: hidden;
+
+            transition:
+                transform .25s,
+                border-color .25s,
+                background .25s;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.18);
+        }
+
+        .admin-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--green),
+                    transparent
+                );
+
+            opacity: .7;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #3a4652;
+
+            background: var(--card-hover);
+        }
+
+        .admin-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 58px;
+            height: 58px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #263443,
+                    #151d26
+                );
+
+            border: 1px solid #3a4652;
+
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .admin-name {
+            font-size: 21px;
+            font-weight: 800;
+
+            display: flex;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        /* =========================
+           VERIFICATION BUTTON
+        ========================= */
+
+        .verify-button {
+            width: 22px;
+            height: 22px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,.35);
+
+            background: #ffffff;
+
+            color: #111820;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 13px;
+            font-weight: 1000;
+
+            cursor: pointer;
+
+            transition:
+                transform .2s,
+                box-shadow .2s;
+        }
+
+        .verify-button:hover {
+            transform: scale(1.12);
+
+            box-shadow:
+                0 0 0 4px rgba(255,255,255,.08);
+        }
+
+        .verify-button:active {
+            transform: scale(.95);
+        }
+
+        /* =========================
+           ROLE BADGE
+        ========================= */
+
+        .role {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: max-content;
+
+            min-height: 25px;
+
+            padding: 4px 12px;
+
+            margin-top: 7px;
+
+            border-radius: 999px;
+
+            border: 1px solid rgba(63,185,80,.45);
+
+            background:
+                rgba(63,185,80,.08);
+
+            color: var(--green-light);
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: .35px;
+
+            white-space: nowrap;
+        }
+
+        .username {
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .description {
+            color: #aab3bd;
+
+            margin: 18px 0 20px;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .actions {
+            display: flex;
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 40px;
+
+            padding: 9px 15px;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .telegram {
+            background: #238636;
+            color: white;
+
+            border: 1px solid #2ea043;
+        }
+
+        .telegram:hover {
+            background: #2ea043;
+            transform: translateY(-1px);
+        }
+
+        .details {
+            background: #1b2530;
+
+            color: #dce3ea;
+
+            border: 1px solid #34404c;
+        }
+
+        .details:hover {
+            background: #222e3b;
+        }
+
+        /* =========================
+           HOW TO VERIFY
+        ========================= */
+
+        .verification-list {
+            display: grid;
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .verification-item {
+            display: flex;
+
+            gap: 13px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background: #10161d;
+
+            border: 1px solid #27313b;
+        }
+
+        .verification-icon {
+            width: 28px;
+            height: 28px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #111820;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 1000;
+        }
+
+        .verification-item strong {
+            color: white;
+        }
+
+        .verification-item p {
+            margin-top: 3px;
+            color: #909aa5;
+            font-size: 14px;
+        }
+
+        /* =========================
+           WARNING
+        ========================= */
+
+        .warning {
+            border: 1px solid rgba(248,81,73,.35);
+
+            background:
+                rgba(248,81,73,.06);
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin-top: 25px;
+        }
+
+        .warning h3 {
+            color: #ff7b72;
+
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+        .warning p {
+            color: #b9a8a7;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            border-top: 1px solid var(--border);
+
+            color: #69737d;
+
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #8b949e;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0,0,0,.72);
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 1000;
+
+            backdrop-filter: blur(7px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            width: min(520px, 100%);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #18212b,
+                    #11171e
+                );
+
+            border: 1px solid #36414c;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.55);
+
+            animation: modalIn .2s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-icon {
+            width: 54px;
+            height: 54px;
+
+            background: white;
+
+            color: #111820;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 27px;
+
+            font-weight: 1000;
+
+            margin-bottom: 17px;
+        }
+
+        .modal h2 {
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+
+        .modal p {
+            color: #aab3bd;
+
+            font-size: 15px;
+
+            line-height: 1.65;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-note {
+            padding: 13px 15px;
+
+            border-radius: 10px;
+
+            background: #0d1319;
+
+            border: 1px solid #29333d;
+
+            color: #c7d0d8;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            width: 100%;
+
+            padding: 12px;
+
+            border-radius: 9px;
+
+            border: 1px solid #3a4652;
+
+            background: #1b2530;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            background: #25313d;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 760px) {
+
+            header {
+                padding: 0 17px;
+            }
+
+            .header-buttons {
+                gap: 5px;
+            }
+
+            .header-button {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .container {
+                padding-top: 35px;
+            }
+
+            .admins {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-card {
+                padding: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .header-button.support {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .admin-top {
+                align-items: flex-start;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" class="logo">
+        Elendorf
+    </a>
+
+    <div class="header-buttons">
+
+        <a
+            href="support.html"
+            class="header-button support"
+        >
+            🛠 Поддержка
+        </a>
+
+        <a
+            href="index.html"
+            class="header-button"
+        >
+            ← Главная
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="shield">
+            ✓
+        </div>
+
+        <h1>
+            Верификация администрации
+        </h1>
+
+        <p>
+            На этой странице размещена текущая официальная
+            администрация платформы Elendorf. Белая галочка
+            рядом с именем подтверждает официальный статус
+            администратора платформы.
+        </p>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <section class="info-card">
+
+        <h2>
+            🔎 Что означает верификация?
+        </h2>
+
+        <p>
+            Верификация Elendorf предназначена для того,
+            чтобы пользователи могли отличать официальных
+            представителей администрации платформы от
+            обычных пользователей и лиц, которые могут
+            выдавать себя за администрацию.
+        </p>
+
+    </section>
+
+
+    <!-- ADMINISTRATION -->
+
+    <div class="section-title">
+
+        <h2>
+            👑 Текущая администрация
+        </h2>
+
+        <p>
+            Официальные администраторы платформы Elendorf
+        </p>
+
+    </div>
+
+
+    <section class="admins">
+
+
+        <!-- THEKOLORADIKS -->
+
+        <article class="admin-card">
+
+            <div class="admin-top">
+
+                <div class="avatar">
+                    T
+                </div>
+
+                <div>
+
+                    <div class="admin-name">
+
+                        TheKoloradiks
+
+                        <button
+                            class="verify-button"
+                            type="button"
+                            aria-label="Информация о верификации"
+                            data-admin="TheKoloradiks"
+                        >
+                            ✓
+                        </button>
+
+                    </div>
+
+                    <div class="role">
+                        ГЛАВНЫЙ АДМИНИСТРАТОР
+                    </div>
+
+                    <div class="username">
+                        Telegram: @TheKoloradiks
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Главный администратор платформы Elendorf.
+                Имеет официальный административный статус
+                и является одним из представителей руководства
+                платформы.
+
+            </p>
+
+
+            <div class="actions">
+
+                <a
+                    href="https://t.me/TheKoloradiks"
+                    target="_blank"
+                    class="button telegram"
+                >
+                    ✈ Написать в Telegram
+                </a>
+
+                <button
+                    type="button"
+                    class="button details verify-button-open"
+                    data-admin="TheKoloradiks"
+                >
+                    ✓ О верификации
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- XSSTONE -->
+
+        <article class="admin-card">
+
+            <div class="admin-top">
+
+                <div class="avatar">
+                    X
+                </div>
+
+                <div>
+
+                    <div class="admin-name">
+
+                        Xsstone
+
+                        <button
+                            class="verify-button"
+                            type="button"
+                            aria-label="Информация о верификации"
+                            data-admin="Xsstone"
+                        >
+                            ✓
+                        </button>
+
+                    </div>
+
+                    <div class="role">
+                        ГЛАВНЫЙ АДМИНИСТРАТОР
+                    </div>
+
+                    <div class="username">
+                        Telegram: @Xsstone
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="description">
+
+                Главный администратор платформы Elendorf.
+                Имеет официальный административный статус
+                и является одним из представителей руководства
+                платформы.
+
+            </p>
+
+
+            <div class="actions">
+
+                <a
+                    href="https://t.me/Xsstone"
+                    target="_blank"
+                    class="button telegram"
+                >
+                    ✈ Написать в Telegram
+                </a>
+
+                <button
+                    type="button"
+                    class="button details verify-button-open"
+                    data-admin="Xsstone"
+                >
+                    ✓ О верификации
+                </button>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- HOW TO RECOGNIZE -->
+
+    <div class="section-title">
+
+        <h2>
+            🛡 Как распознать официального администратора?
+        </h2>
+
+        <p>
+            Несколько простых рекомендаций для безопасности пользователей
+        </p>
+
+    </div>
+
+
+    <section class="info-card">
+
+        <div class="verification-list">
+
+
+            <div class="verification-item">
+
+                <div class="verification-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Проверяйте белую галочку
+                    </strong>
+
+                    <p>
+                        Официальные администраторы, указанные
+                        на этой странице, имеют белую галочку
+                        рядом со своим именем.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="verification-item">
+
+                <div class="verification-icon">
+                    1
+                </div>
+
+                <div>
+
+                    <strong>
+                        Сверяйте никнейм
+                    </strong>
+
+                    <p>
+                        Всегда обращайте внимание на точное написание
+                        Telegram-никнейма. Поддельные аккаунты могут
+                        использовать похожие имена.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="verification-item">
+
+                <div class="verification-icon">
+                    2
+                </div>
+
+                <div>
+
+                    <strong>
+                        Не доверяйте требованиям передать секретные данные
+                    </strong>
+
+                    <p>
+                        Администрация не должна требовать у вас
+                        пароли, коды входа или другие секретные данные.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="verification-item">
+
+                <div class="verification-icon">
+                    3
+                </div>
+
+                <div>
+
+                    <strong>
+                        Проверяйте информацию на официальном сайте
+                    </strong>
+
+                    <p>
+                        Если кто-либо заявляет, что является
+                        администратором Elendorf, сравните его
+                        данные с информацией на этой странице.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="warning">
+
+            <h3>
+                ⚠️ Осторожно: мошенники
+            </h3>
+
+            <p>
+                Никогда не передавайте посторонним лицам пароли,
+                коды подтверждения Telegram, данные аккаунтов,
+                платежные данные или другую конфиденциальную
+                информацию. Если человек утверждает, что является
+                администратором Elendorf, но его нет в списке
+                официальной администрации, относитесь к такому
+                обращению с осторожностью.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUPPORT -->
+
+    <section class="info-card">
+
+        <h2>
+            🛠 Нужна помощь?
+        </h2>
+
+        <p>
+            Если вы обнаружили ошибку, столкнулись с проблемой
+            или хотите сообщить о подозрительном аккаунте,
+            обратитесь в техническую поддержку Elendorf.
+        </p>
+
+        <br>
+
+        <a
+            href="support.html"
+            class="button telegram"
+        >
+            Открыть техническую поддержку
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    © Elendorf
+
+    <br><br>
+
+    Страница официальной верификации администрации
+
+</footer>
+
+
+<!-- =========================
+     VERIFICATION MODAL
+========================= -->
+
+<div
+    class="modal-overlay"
+    id="verificationModal"
+>
+
+    <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+
+        <div class="modal-icon">
+            ✓
+        </div>
+
+        <h2 id="modalTitle">
+            Официальная верификация
+        </h2>
+
+        <p id="modalText">
+
+            Пользователь является официальным
+            администратором платформы Elendorf.
+
+        </p>
+
+        <div class="modal-note">
+
+            <strong>
+                Важно:
+            </strong>
+
+            Эта отметка не означает, что владелец аккаунта
+            является знаменитой, публичной или иной
+            общественно известной личностью.
+
+            <br><br>
+
+            Белая галочка используется исключительно
+            внутри платформы Elendorf для того, чтобы
+            пользователи могли определить официальных
+            представителей администрации и отличить их
+            от обычных пользователей или возможных
+            поддельных аккаунтов.
+
+        </div>
+
+        <button
+            type="button"
+            class="close-modal"
+            id="closeModal"
+        >
+            Понятно
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const modal =
+        document.getElementById("verificationModal");
+
+    const modalTitle =
+        document.getElementById("modalTitle");
+
+    const modalText =
+        document.getElementById("modalText");
+
+    const closeModal =
+        document.getElementById("closeModal");
+
+
+    const verificationButtons =
+        document.querySelectorAll(
+            ".verify-button, .verify-button-open"
+        );
+
+
+    verificationButtons.forEach(button => {
+
+        button.addEventListener("click", function() {
+
+            const admin =
+                this.getAttribute("data-admin");
+
+            modalTitle.textContent =
+                "✓ Официальная верификация";
+
+            modalText.textContent =
+                admin +
+                " указан как официальный Главный Администратор платформы Elendorf.";
+
+            modal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+    });
+
+
+    function closeVerificationModal() {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    closeModal.addEventListener(
+        "click",
+        closeVerificationModal
+    );
+
+
+    modal.addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === modal) {
+
+                closeVerificationModal();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("active")
+            ) {
+
+                closeVerificationModal();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

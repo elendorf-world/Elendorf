@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Техническая поддержка — Elendorf</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d1117;
+            color: #f0f3f6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #111820;
+            border-bottom: 1px solid #29313a;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back {
+            color: #aeb8c2;
+            text-decoration: none;
+            font-size: 15px;
+            transition: .2s;
+        }
+
+        .back:hover {
+            color: white;
+        }
+
+        .container {
+            width: min(1000px, 92%);
+            margin: 45px auto;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #9da7b1;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: #151b23;
+            border: 1px solid #29313a;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.18);
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            color: #9da7b1;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .rules {
+            display: grid;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .rule {
+            padding: 13px 15px;
+            border-radius: 10px;
+            background: #10151b;
+            border: 1px solid #242c35;
+            line-height: 1.5;
+            color: #c9d1d9;
+        }
+
+        .rule strong {
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #e8edf2;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            background: #0d1117;
+            border: 1px solid #343d47;
+            color: white;
+            border-radius: 10px;
+            padding: 13px 14px;
+            font-size: 15px;
+            outline: none;
+            transition: .2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 3px rgba(88,166,255,.10);
+        }
+
+        textarea {
+            min-height: 170px;
+            resize: vertical;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #7f8a95;
+            margin-top: 7px;
+        }
+
+        .admins {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .admin {
+            background: #10151b;
+            border: 1px solid #29313a;
+            border-radius: 13px;
+            padding: 17px;
+        }
+
+        .admin-name {
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .admin-role {
+            color: #69d47b;
+            font-weight: 800;
+            font-size: 12px;
+            display: inline-block;
+            border: 1px solid rgba(105,212,123,.45);
+            border-radius: 999px;
+            padding: 4px 10px;
+            margin-bottom: 12px;
+        }
+
+        .admin-link {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .admin-link:hover {
+            text-decoration: underline;
+        }
+
+        .submit {
+            width: 100%;
+            border: none;
+            border-radius: 11px;
+            padding: 15px;
+            background: #238636;
+            color: white;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .submit:hover {
+            background: #2ea043;
+            transform: translateY(-1px);
+        }
+
+        .notice {
+            background: rgba(210,153,34,.08);
+            border: 1px solid rgba(210,153,34,.35);
+            border-radius: 12px;
+            padding: 15px;
+            color: #d8c58b;
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+
+        .success {
+            display: none;
+            background: rgba(46,160,67,.10);
+            border: 1px solid rgba(46,160,67,.45);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 18px;
+            line-height: 1.5;
+            color: #b7e6bf;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #69737d;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .admins {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            header {
+                padding: 15px 18px;
+            }
+
+            .card {
+                padding: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">Elendorf</a>
+    <a href="index.html" class="back">← Вернуться на главную</a>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h1>🛠️ Техническая поддержка</h1>
+        <p>
+            Здесь вы можете сообщить о технической проблеме,
+            ошибке на сайте, предложить улучшение или обратиться
+            по другому вопросу, связанному с платформой Elendorf.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>📌 Перед обращением</h2>
+
+        <p class="card-description">
+            Пожалуйста, сначала ознакомьтесь с правилами обращения.
+            Это поможет администрации быстрее разобраться с вашей проблемой.
+        </p>
+
+        <div class="rules">
+
+            <div class="rule">
+                <strong>✓ Пишите по существу.</strong><br>
+                Опишите проблему максимально понятно и, если возможно,
+                укажите страницу или действие, при котором возникла ошибка.
+            </div>
+
+            <div class="rule">
+                <strong>✓ Один вопрос — один тикет.</strong><br>
+                Не отправляйте несколько одинаковых обращений подряд.
+            </div>
+
+            <div class="rule">
+                <strong>✓ Сообщайте об ошибках.</strong><br>
+                Если кнопка не работает, страница выдаёт ошибку,
+                информация отображается неправильно или возникла другая
+                техническая проблема — сообщите об этом администрации.
+            </div>
+
+            <div class="rule">
+                <strong>✗ Не отправляйте пароли и коды.</strong><br>
+                Никогда не сообщайте администрации пароли, коды
+                подтверждения Telegram или другую секретную информацию.
+            </div>
+
+            <div class="rule">
+                <strong>✗ Запрещён спам.</strong><br>
+                Массовые сообщения, бессмысленные обращения,
+                намеренное создание большого количества тикетов
+                и злоупотребление системой поддержки могут привести
+                к блокировке обращения и добавлению пользователя в ЧС.
+            </div>
+
+            <div class="rule">
+                <strong>✗ Не используйте поддержку для угроз,
+                мошенничества или оскорблений.</strong><br>
+                Такие обращения не рассматриваются как нормальные
+                обращения в техническую поддержку.
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎫 Создать тикет</h2>
+
+        <p class="card-description">
+            Заполните форму ниже. После нажатия кнопки будет открыт
+            Telegram с уже подготовленным сообщением. Вам останется
+            только проверить его и отправить выбранному администратору.
+        </p>
+
+        <form id="ticketForm">
+
+            <div class="field">
+                <label for="name">Ваше имя / никнейм</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    maxlength="60"
+                    placeholder="Например: ElendorfUser"
+                    required
+                >
+            </div>
+
+
+            <div class="field">
+                <label for="category">Категория обращения</label>
+
+                <select id="category" required>
+                    <option value="">Выберите категорию</option>
+                    <option>Техническая ошибка</option>
+                    <option>Проблема со страницей</option>
+                    <option>Предложение по улучшению</option>
+                    <option>Жалоба</option>
+                    <option>Вопрос по работе платформы</option>
+                    <option>Другое</option>
+                </select>
+            </div>
+
+
+            <div class="field">
+                <label for="page">Страница, где возникла проблема</label>
+
+                <input
+                    type="text"
+                    id="page"
+                    placeholder="Например: Главная / Города / Конституция"
+                >
+
+                <div class="hint">
+                    Если вопрос не связан с конкретной страницей — оставьте поле пустым.
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label for="message">Описание проблемы / вопрос</label>
+
+                <textarea
+                    id="message"
+                    maxlength="3000"
+                    placeholder="Подробно опишите вашу проблему..."
+                    required
+                ></textarea>
+
+                <div class="hint">
+                    Максимум 3000 символов.
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label for="admin">Кому отправить тикет?</label>
+
+                <select id="admin" required>
+                    <option value="">Выберите администратора</option>
+                    <option value="TheKoloradiks">TheKoloradiks — Главный Администратор</option>
+                    <option value="Xsstone">Xsstone — Главный Администратор</option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="submit">
+                📤 Создать тикет и открыть Telegram
+            </button>
+
+        </form>
+
+
+        <div class="success" id="successMessage">
+            ✓ Тикет сформирован. Сейчас откроется Telegram.
+            Проверьте сообщение и отправьте его администратору.
+        </div>
+
+        <div class="notice">
+            <strong>Важно:</strong> форма не отправляет сообщение автоматически.
+            Telegram требует подтверждения отправки пользователем.
+            После открытия Telegram обязательно нажмите кнопку отправки сообщения.
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>👑 Связь с администрацией платформы</h2>
+
+        <p class="card-description">
+            Если ваш вопрос относится непосредственно к работе платформы,
+            административным решениям или другим вопросам, требующим
+            вмешательства руководства Elendorf, вы можете обратиться
+            к одному из главных администраторов.
+        </p>
+
+
+        <div class="admins">
+
+            <div class="admin">
+                <div class="admin-name">
+                    TheKoloradiks ✓
+                </div>
+
+                <div class="admin-role">
+                    ГЛАВНЫЙ АДМИНИСТРАТОР
+                </div>
+
+                <br>
+
+                <a
+                    class="admin-link"
+                    href="https://t.me/TheKoloradiks"
+                    target="_blank"
+                >
+                    @TheKoloradiks
+                </a>
+            </div>
+
+
+            <div class="admin">
+                <div class="admin-name">
+                    Xsstone ✓
+                </div>
+
+                <div class="admin-role">
+                    ГЛАВНЫЙ АДМИНИСТРАТОР
+                </div>
+
+                <br>
+
+                <a
+                    class="admin-link"
+                    href="https://t.me/Xsstone"
+                    target="_blank"
+                >
+                    @Xsstone
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>⚠️ Что считается злоупотреблением поддержкой?</h2>
+
+        <p class="card-description">
+            Система поддержки предназначена для реальных вопросов
+            и проблем пользователей. Не используйте её для:
+        </p>
+
+        <div class="rules">
+
+            <div class="rule">
+                🚫 массовой отправки одинаковых сообщений;
+            </div>
+
+            <div class="rule">
+                🚫 заведомо ложных жалоб;
+            </div>
+
+            <div class="rule">
+                🚫 рекламы и саморекламы;
+            </div>
+
+            <div class="rule">
+                🚫 мошенничества и попыток обмана администрации;
+            </div>
+
+            <div class="rule">
+                🚫 угроз, оскорблений и провокаций;
+            </div>
+
+            <div class="rule">
+                🚫 отправки запрещённого или вредоносного содержимого.
+            </div>
+
+        </div>
+
+        <div class="notice">
+            За систематическое злоупотребление поддержкой администрация
+            может прекратить рассмотрение обращений пользователя и применить
+            предусмотренные правилами платформы ограничения.
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © Elendorf — Техническая поддержка
+</footer>
+
+
+<script>
+
+document.getElementById("ticketForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const category =
+        document.getElementById("category").value;
+
+    const page =
+        document.getElementById("page").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+    const admin =
+        document.getElementById("admin").value;
+
+
+    if (!name || !category || !message || !admin) {
+        alert("Пожалуйста, заполните все обязательные поля.");
+        return;
+    }
+
+
+    let username = "";
+
+    if (admin === "TheKoloradiks") {
+        username = "TheKoloradiks";
+    }
+
+    if (admin === "Xsstone") {
+        username = "Xsstone";
+    }
+
+
+    const ticket =
+`🎫 НОВОЕ ОБРАЩЕНИЕ ELENDORF
+
+👤 Пользователь:
+${name}
+
+📂 Категория:
+${category}
+
+📄 Страница:
+${page || "Не указана"}
+
+💬 Сообщение:
+${message}
+
+━━━━━━━━━━━━━━
+Обращение отправлено через официальный сайт Elendorf.`;
+
+
+    document.getElementById("successMessage").style.display = "block";
+
+
+    const telegramURL =
+        "https://t.me/" +
+        username +
+        "?text=" +
+        encodeURIComponent(ticket);
+
+
+    setTimeout(function() {
+        window.open(telegramURL, "_blank");
+    }, 500);
+
+});
+
+</script>
+
+</body>
+</html>
