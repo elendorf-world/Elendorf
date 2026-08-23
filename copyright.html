@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Авторские права — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Информация об авторских правах и использовании материалов официального портала Королевства Элендорф.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           COPYRIGHT PAGE
+        ========================================= */
+
+        .copyright-hero-box {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 320px;
+
+            gap: 25px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .copyright-main {
+
+            padding: 38px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(31,65,99,.7),
+                    rgba(255,255,255,.025)
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .copyright-main::after {
+
+            content: "©";
+
+            position: absolute;
+
+            right: 30px;
+            top: -35px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 230px;
+
+            color:
+                rgba(255,255,255,.025);
+
+            line-height: 1;
+        }
+
+
+        .copyright-main h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 36px;
+
+            margin-bottom: 15px;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        .copyright-main p {
+
+            color: #9eafc0;
+
+            max-width: 720px;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        .copyright-mark {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 240px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.045);
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 110px;
+
+            color: #c7d1db;
+
+            box-shadow:
+                inset 0 0 50px
+                rgba(255,255,255,.025);
+        }
+
+
+        /* =========================================
+           RIGHTS GRID
+        ========================================= */
+
+        .rights-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .right-card {
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.025)
+                );
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease;
+        }
+
+
+        .right-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(180,205,230,.22);
+        }
+
+
+        .right-icon {
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .right-card h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .right-card p {
+
+            color: #8fa2b5;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+        }
+
+
+        /* =========================================
+           LIST
+        ========================================= */
+
+        .protected-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 25px;
+        }
+
+
+        .protected-item {
+
+            padding: 17px 19px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            color: #a6b5c3;
+
+            font-size: 13px;
+        }
+
+
+        .protected-item::before {
+
+            content: "✓";
+
+            color: #c7d2dc;
+
+            font-weight: 700;
+
+            margin-right: 10px;
+        }
+
+
+        /* =========================================
+           LEGAL NOTICE
+        ========================================= */
+
+        .legal-notice {
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(50,72,92,.35),
+                    rgba(255,255,255,.025)
+                );
+        }
+
+
+        .legal-notice h3 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 27px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .legal-notice p {
+
+            color: #97a9ba;
+
+            margin-bottom: 14px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           COPYRIGHT TABLE
+        ========================================= */
+
+        .copyright-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 25px;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+        }
+
+
+        .copyright-table th,
+        .copyright-table td {
+
+            text-align: left;
+
+            padding: 17px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+        }
+
+
+        .copyright-table th {
+
+            color: #dbe4eb;
+
+            background:
+                rgba(255,255,255,.06);
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .copyright-table td {
+
+            color: #91a4b7;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-box {
+
+            text-align: center;
+
+            padding: 40px 25px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .contact-box h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 34px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .contact-box p {
+
+            color: #8fa2b5;
+
+            max-width: 650px;
+
+            margin:
+                0 auto 25px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .copyright-hero-box {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .rights-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .protected-list {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .copyright-main {
+
+                padding: 27px;
+            }
+
+
+            .copyright-mark {
+
+                min-height: 170px;
+
+                font-size: 80px;
+            }
+
+
+            .legal-notice {
+
+                padding: 25px;
+            }
+
+
+            .copyright-table {
+
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     FLAG
+========================================= -->
+
+<div class="flag-line"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                ©
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Законодательство
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Правовая информация
+        </div>
+
+        <h1>
+            Авторские права
+        </h1>
+
+        <p>
+            Информация о правах на дизайн,
+            тексты, программный код и материалы
+            официального портала Королевства Элендорф.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BREADCRUMBS
+========================================= -->
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    Авторские права
+
+</div>
+
+
+<!-- =========================================
+     MAIN COPYRIGHT
+========================================= -->
+
+<section class="section">
+
+
+    <div class="copyright-hero-box">
+
+
+        <div class="copyright-main">
+
+            <h2>
+                Права на материалы Элендорфа
+            </h2>
+
+            <p>
+                Официальный портал Королевства Элендорф
+                является частью виртуального государственного
+                проекта. Его оригинальные тексты, визуальное
+                оформление, структура страниц и программный
+                код создаются специально для проекта.
+            </p>
+
+        </div>
+
+
+        <div class="copyright-mark">
+            ©
+        </div>
+
+    </div>
+
+
+<!-- =========================================
+     RIGHTS
+========================================= -->
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Что защищается
+        </div>
+
+        <h2>
+            Оригинальные материалы
+        </h2>
+
+        <p class="section-description">
+            Права распространяются на оригинальные
+            результаты творческой работы, созданные
+            авторами проекта.
+        </p>
+
+    </div>
+
+
+    <div class="rights-grid">
+
+
+        <div class="right-card">
+
+            <div class="right-icon">
+                🎨
+            </div>
+
+            <h3>
+                Дизайн сайта
+            </h3>
+
+            <p>
+                Оригинальная визуальная концепция,
+                композиция страниц, стилистика,
+                оформление карточек, интерфейсные
+                элементы и анимации.
+            </p>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <div class="right-icon">
+                💻
+            </div>
+
+            <h3>
+                Программный код
+            </h3>
+
+            <p>
+                Оригинальный HTML, CSS, JavaScript
+                и другие программные материалы,
+                созданные специально для портала.
+            </p>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <div class="right-icon">
+                📝
+            </div>
+
+            <h3>
+                Тексты
+            </h3>
+
+            <p>
+                Оригинальные описания государства,
+                информационные материалы, тексты
+                страниц и иные авторские публикации.
+            </p>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <div class="right-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Фирменная стилистика
+            </h3>
+
+            <p>
+                Название проекта, элементы фирменного
+                оформления, композиционные решения
+                и иные оригинальные материалы.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PROTECTED MATERIALS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Объекты проекта
+        </div>
+
+        <h2>
+            Материалы, созданные для Элендорфа
+        </h2>
+
+    </div>
+
+
+    <div class="protected-list">
+
+        <div class="protected-item">
+            Дизайн официального портала
+        </div>
+
+        <div class="protected-item">
+            Структура информационных страниц
+        </div>
+
+        <div class="protected-item">
+            Авторские тексты
+        </div>
+
+        <div class="protected-item">
+            Оригинальный HTML-код
+        </div>
+
+        <div class="protected-item">
+            Оригинальный CSS-код
+        </div>
+
+        <div class="protected-item">
+            Оригинальные сценарии JavaScript
+        </div>
+
+        <div class="protected-item">
+            Графические материалы проекта
+        </div>
+
+        <div class="protected-item">
+            Авторские концепции оформления
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     RIGHTS TABLE
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Использование
+        </div>
+
+        <h2>
+            Что можно и что нельзя
+        </h2>
+
+    </div>
+
+
+    <table class="copyright-table">
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Действие
+                </th>
+
+                <th>
+                    Статус
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    Просмотр сайта
+                </td>
+
+                <td>
+                    Разрешено
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Ссылка на портал
+                </td>
+
+                <td>
+                    Разрешено
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Цитирование небольших фрагментов
+                    с указанием источника
+                </td>
+
+                <td>
+                    Допустимо
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Копирование дизайна целиком
+                </td>
+
+                <td>
+                    Не разрешается
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Копирование оригинального кода
+                </td>
+
+                <td>
+                    Не разрешается
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Выдача материалов проекта
+                    за собственную работу
+                </td>
+
+                <td>
+                    Не разрешается
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Создание копии сайта
+                    на основе оригинального оформления
+                </td>
+
+                <td>
+                    Не разрешается
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+
+<!-- =========================================
+     LEGAL NOTICE
+========================================= -->
+
+<section class="section">
+
+
+    <div class="legal-notice">
+
+        <h3>
+            Юридическое примечание
+        </h3>
+
+        <p>
+            Королевство Элендорф является виртуальным
+            государственным проектом. Настоящая страница
+            устанавливает правила использования материалов
+            проекта в рамках его внутренней деятельности.
+        </p>
+
+        <p>
+            Использование материалов проекта третьими лицами
+            не должно создавать ложного впечатления,
+            что такие лица являются авторами, владельцами
+            или официальными представителями Элендорфа.
+        </p>
+
+        <p>
+            Права на конкретные изображения, шрифты,
+            библиотеки и иные сторонние материалы могут
+            принадлежать их соответствующим правообладателям
+            и регулируются их собственными лицензиями.
+        </p>
+
+        <div class="info-box">
+
+            <strong>
+                Важно:
+            </strong>
+
+            само наличие обозначения © на сайте не означает,
+            что абсолютно каждый элемент страницы автоматически
+            принадлежит проекту. Защита распространяется
+            прежде всего на оригинальные произведения,
+            созданные авторами проекта.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section class="section">
+
+    <div class="contact-box">
+
+        <h2>
+            Вопрос по использованию материалов?
+        </h2>
+
+        <p>
+            Если вы хотите использовать оригинальные
+            материалы портала, свяжитесь с администрацией
+            проекта и получите соответствующее разрешение.
+        </p>
+
+        <a
+            href="about.html"
+            class="button button-secondary">
+
+            Связаться с администрацией
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="news.html">
+            Новости
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Конституция — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Конституция Королевства Элендорф — основной учредительный документ виртуального государства.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           CONSTITUTION HERO
+        ========================================= */
+
+        .constitution-cover {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 65px 45px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(29,56,83,.9),
+                    rgba(255,255,255,.025)
+                );
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .constitution-cover::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 15px;
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            border-radius: 14px;
+
+            pointer-events: none;
+
+        }
+
+
+        .constitution-star {
+
+            position: relative;
+
+            font-size: 38px;
+
+            margin-bottom: 20px;
+
+            color: #d6dfe6;
+
+        }
+
+
+        .constitution-label {
+
+            position: relative;
+
+            color: #899bac;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .constitution-cover h1 {
+
+            position: relative;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 48px;
+
+            color: #e2e8ed;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .constitution-cover h2 {
+
+            position: relative;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 24px;
+
+            font-weight: normal;
+
+            color: #aebcc7;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .constitution-cover p {
+
+            position: relative;
+
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #899bab;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================
+           DOCUMENT INFO
+        ========================================= */
+
+        .constitution-meta {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .meta-card {
+
+            padding: 19px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.065);
+
+        }
+
+
+        .meta-card span {
+
+            display: block;
+
+            color: #728698;
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .meta-card strong {
+
+            color: #cbd5dd;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================================
+           DOCUMENT LAYOUT
+        ========================================= */
+
+        .constitution-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                250px 1fr;
+
+            gap: 30px;
+
+            align-items: start;
+
+        }
+
+
+        .constitution-nav {
+
+            position: sticky;
+
+            top: 25px;
+
+            padding: 22px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+        }
+
+
+        .constitution-nav-title {
+
+            color: #8193a4;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .constitution-nav a {
+
+            display: block;
+
+            color: #91a3b2;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            padding: 9px 10px;
+
+            border-radius: 7px;
+
+            margin-bottom: 3px;
+
+            transition: .2s ease;
+
+        }
+
+
+        .constitution-nav a:hover {
+
+            color: #dce4ea;
+
+            background:
+                rgba(255,255,255,.06);
+
+        }
+
+
+        /* =========================================
+           CONSTITUTION ARTICLE
+        ========================================= */
+
+        .constitution-section {
+
+            margin-bottom: 45px;
+
+            scroll-margin-top: 30px;
+
+        }
+
+
+        .chapter-heading {
+
+            padding-bottom: 15px;
+
+            margin-bottom: 20px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.09);
+
+        }
+
+
+        .chapter-heading span {
+
+            display: block;
+
+            color: #7e91a3;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .chapter-heading h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 30px;
+
+            color: #dce4ea;
+
+        }
+
+
+        .constitutional-article {
+
+            margin-bottom: 20px;
+
+            padding: 25px 27px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+        }
+
+
+        .constitutional-article h3 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 20px;
+
+            color: #d5dee5;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .constitutional-article p {
+
+            color: #94a5b4;
+
+            font-size: 13px;
+
+            line-height: 1.85;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .constitutional-article p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .part-number {
+
+            color: #b6c4cf;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================================
+           IMPORTANT NOTE
+        ========================================= */
+
+        .constitution-note {
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(44,66,86,.35),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            color: #8fa1b0;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .constitution-note strong {
+
+            display: block;
+
+            color: #c5d0d8;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .constitution-meta {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .constitution-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .constitution-nav {
+
+                position: static;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .constitution-cover {
+
+                padding: 45px 25px;
+
+            }
+
+
+            .constitution-cover h1 {
+
+                font-size: 37px;
+
+            }
+
+
+            .constitution-meta {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="flag-line"></div>
+
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                ★
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Конституция
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Основной государственный документ
+        </div>
+
+        <h1>
+            Конституция
+        </h1>
+
+        <p>
+            Основной учредительный документ
+            Королевства Элендорф.
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    Законодательство
+
+    <span>›</span>
+
+    Конституция
+
+</div>
+
+
+<section class="section">
+
+
+    <!-- ОБЛОЖКА -->
+
+    <div class="constitution-cover">
+
+        <div class="constitution-star">
+            ★
+        </div>
+
+        <div class="constitution-label">
+            Основной закон
+        </div>
+
+        <h1>
+            КОНСТИТУЦИЯ
+        </h1>
+
+        <h2>
+            Королевства Элендорф
+        </h2>
+
+        <p>
+            Основной учредительный документ
+            виртуального государства Элендорф,
+            определяющий основы государственного
+            устройства, систему власти и
+            ключевые принципы управления.
+        </p>
+
+    </div>
+
+
+    <!-- МЕТАДАННЫЕ -->
+
+    <div class="constitution-meta">
+
+
+        <div class="meta-card">
+
+            <span>
+                Государство
+            </span>
+
+            <strong>
+                Королевство Элендорф
+            </strong>
+
+        </div>
+
+
+        <div class="meta-card">
+
+            <span>
+                Статус
+            </span>
+
+            <strong>
+                Основной закон
+            </strong>
+
+        </div>
+
+
+        <div class="meta-card">
+
+            <span>
+                Форма правления
+            </span>
+
+            <strong>
+                Абсолютная монархия
+            </strong>
+
+        </div>
+
+
+        <div class="meta-card">
+
+            <span>
+                Среда
+            </span>
+
+            <strong>
+                Виртуальное государство
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="constitution-layout">
+
+
+        <!-- НАВИГАЦИЯ -->
+
+        <aside class="constitution-nav">
+
+            <div class="constitution-nav-title">
+                Содержание
+            </div>
+
+            <a href="#preamble">
+                Преамбула
+            </a>
+
+            <a href="#chapter1">
+                Раздел I — Основы
+            </a>
+
+            <a href="#chapter2">
+                Раздел II — Глава государства
+            </a>
+
+            <a href="#chapter3">
+                Раздел III — Органы власти
+            </a>
+
+            <a href="#chapter4">
+                Раздел IV — Права и обязанности
+            </a>
+
+            <a href="#chapter5">
+                Раздел V — Заключительные положения
+            </a>
+
+        </aside>
+
+
+        <!-- ТЕКСТ -->
+
+        <main>
+
+
+            <!-- ПРЕАМБУЛА -->
+
+            <section
+                class="constitution-section"
+                id="preamble">
+
+                <div class="chapter-heading">
+
+                    <span>
+                        Конституция
+                    </span>
+
+                    <h2>
+                        Преамбула
+                    </h2>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Преамбула
+                    </h3>
+
+                    <p>
+                        Мы, основатели и участники
+                        Королевства Элендорф, признавая
+                        необходимость упорядоченного
+                        государственного управления,
+                        утверждаем настоящую Конституцию
+                        в качестве основного документа
+                        виртуального государства.
+                    </p>
+
+                    <p>
+                        Конституция устанавливает основы
+                        государственного устройства
+                        Элендорфа, определяет систему
+                        государственной власти и
+                        регулирует основные отношения
+                        внутри проекта.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- РАЗДЕЛ I -->
+
+            <section
+                class="constitution-section"
+                id="chapter1">
+
+                <div class="chapter-heading">
+
+                    <span>
+                        Раздел I
+                    </span>
+
+                    <h2>
+                        Основы государства
+                    </h2>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 1. Королевство Элендорф
+                    </h3>
+
+                    <p>
+                        Королевство Элендорф является
+                        виртуальным городом-государством,
+                        существующим в рамках
+                        соответствующего игрового
+                        и цифрового проекта.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 2. Форма правления
+                    </h3>
+
+                    <p>
+                        Формой правления Королевства
+                        Элендорф является абсолютная
+                        монархия.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 3. Территория
+                    </h3>
+
+                    <p>
+                        Территория Королевства Элендорф
+                        представляет собой единую
+                        городскую территорию виртуального
+                        государства.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 4. Столица
+                    </h3>
+
+                    <p>
+                        Столицей Королевства Элендорф
+                        является город Элендорф.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 5. Государственные языки
+                    </h3>
+
+                    <p>
+                        Государственными языками
+                        Элендорфа являются русский
+                        и украинский языки.
+                    </p>
+
+                    <p>
+                        Оба языка признаются
+                        равноправными в рамках
+                        государственного проекта.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- РАЗДЕЛ II -->
+
+            <section
+                class="constitution-section"
+                id="chapter2">
+
+                <div class="chapter-heading">
+
+                    <span>
+                        Раздел II
+                    </span>
+
+                    <h2>
+                        Глава государства
+                    </h2>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 6. Король Элендорфа
+                    </h3>
+
+                    <p>
+                        Король является главой
+                        государства Королевства
+                        Элендорф.
+                    </p>
+
+                    <p>
+                        Король осуществляет высшую
+                        государственную власть
+                        в соответствии с настоящей
+                        Конституцией и действующими
+                        государственными актами.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 7. Срок полномочий Короля
+                    </h3>
+
+                    <p>
+                        Срок полномочий действующего
+                        Короля не ограничивается
+                        определённым календарным сроком.
+                    </p>
+
+                    <p>
+                        Полномочия Короля сохраняются
+                        до момента официального
+                        объявления им об отставке
+                        либо до наступления иного
+                        основания прекращения полномочий,
+                        предусмотренного Конституцией.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 8. Заместитель Короля
+                    </h3>
+
+                    <p>
+                        При Короле действует должность
+                        Заместителя Короля.
+                    </p>
+
+                    <p>
+                        Полномочия Заместителя Короля
+                        определяются Конституцией,
+                        указами Короля и иными
+                        государственными актами.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 9. Прекращение полномочий
+                    </h3>
+
+                    <p>
+                        Порядок прекращения полномочий
+                        Короля и перехода полномочий
+                        определяется настоящей Конституцией
+                        и соответствующими государственными
+                        актами.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- РАЗДЕЛ III -->
+
+            <section
+                class="constitution-section"
+                id="chapter3">
+
+                <div class="chapter-heading">
+
+                    <span>
+                        Раздел III
+                    </span>
+
+                    <h2>
+                        Государственные органы
+                    </h2>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 10. Государственный совет
+                    </h3>
+
+                    <p>
+                        Государственный совет Элендорфа
+                        является высшим государственным
+                        органом в установленной системе
+                        государственного управления.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 11. Исполнительный комитет
+                    </h3>
+
+                    <p>
+                        Исполнительный комитет
+                        Государственного совета осуществляет
+                        исполнение государственных решений
+                        и текущее административное управление
+                        в пределах предоставленных ему
+                        полномочий.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 12. Кабинет министров
+                    </h3>
+
+                    <p>
+                        Кабинет Министров Элендорфа
+                        является государственным органом,
+                        осуществляющим текущее управление
+                        определёнными направлениями
+                        государственной деятельности.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 13. Верховный суд
+                    </h3>
+
+                    <p>
+                        Верховный суд Элендорфа является
+                        высшим судебным органом виртуального
+                        государства в пределах установленной
+                        системы правосудия проекта.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- РАЗДЕЛ IV -->
+
+            <section
+                class="constitution-section"
+                id="chapter4">
+
+                <div class="chapter-heading">
+
+                    <span>
+                        Раздел IV
+                    </span>
+
+                    <h2>
+                        Права и обязанности
+                    </h2>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 14. Участники государства
+                    </h3>
+
+                    <p>
+                        Участниками виртуального государства
+                        признаются лица, принимающие участие
+                        в деятельности проекта Элендорфа
+                        в соответствии с установленными
+                        правилами.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 15. Равенство перед правилами
+                    </h3>
+
+                    <p>
+                        Участники проекта обладают
+                        установленными государственными
+                        правилами правами и обязанностями
+                        независимо от занимаемой ими
+                        должности, если иное прямо
+                        не предусмотрено государственными
+                        актами.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 16. Обязанности участников
+                    </h3>
+
+                    <p>
+                        Участники обязаны соблюдать
+                        Конституцию, законы, указы
+                        и иные действующие нормативные
+                        акты Элендорфа.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- РАЗДЕЛ V -->
+
+            <section
+                class="constitution-section"
+                id="chapter5">
+
+                <div class="chapter-heading">
+
+                    <span>
+                        Раздел V
+                    </span>
+
+                    <h2>
+                        Заключительные положения
+                    </h2>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 17. Высшая юридическая сила
+                    </h3>
+
+                    <p>
+                        Конституция является основным
+                        учредительным документом
+                        Королевства Элендорф.
+                    </p>
+
+                    <p>
+                        Государственные акты принимаются
+                        и применяются в соответствии
+                        с установленным конституционным
+                        порядком.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 18. Изменение Конституции
+                    </h3>
+
+                    <p>
+                        Порядок принятия, изменения
+                        и дополнения Конституции
+                        устанавливается отдельными
+                        конституционными положениями
+                        и государственными актами.
+                    </p>
+
+                </div>
+
+
+                <div class="constitutional-article">
+
+                    <h3>
+                        Статья 19. Вступление в силу
+                    </h3>
+
+                    <p>
+                        Конституция вступает в силу
+                        с момента её официального
+                        утверждения и опубликования
+                        в установленном государством
+                        порядке.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ПРИМЕЧАНИЕ -->
+
+            <div class="constitution-note">
+
+                <strong>
+                    Статус документа
+                </strong>
+
+                Настоящая Конституция является
+                учредительным и нормативным документом
+                виртуального государства Элендорф.
+                Она регулирует внутренние правила,
+                организацию проекта и взаимодействие
+                его участников.
+
+                <br><br>
+
+                Конституция не является законодательством
+                реально существующего государства и
+                не заменяет нормы применимого
+                законодательства.
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="constitution.html">
+            Конституция
+        </a>
+
+        <a href="criminal-code.html">
+            Уголовный кодекс
+        </a>
+
+        <a href="decrees.html">
+            Указы
+        </a>
+
+        <a href="legal.html">
+            Юридические сведения
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Новости — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Официальные новости и государственные сообщения Королевства Элендорф.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           NEWS PAGE
+        ========================================= */
+
+        .news-feature {
+            display: grid;
+            grid-template-columns: 1.4fr .8fr;
+            gap: 22px;
+            margin-bottom: 25px;
+        }
+
+        .news-main {
+            min-height: 360px;
+            padding: 38px;
+
+            border-radius: 18px;
+
+            border: 1px solid rgba(255,255,255,.09);
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(83,125,170,.25),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(29,61,94,.8),
+                    rgba(7,18,31,.9)
+                );
+
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            transition: .3s ease;
+        }
+
+        .news-main:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(180,205,230,.25);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.3);
+        }
+
+        .news-main::before {
+            content: "Э";
+
+            position: absolute;
+
+            right: 45px;
+            top: 10px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 240px;
+
+            color: rgba(255,255,255,.025);
+
+            line-height: 1;
+        }
+
+        .news-tag {
+            display: inline-block;
+
+            width: fit-content;
+
+            padding: 6px 11px;
+
+            margin-bottom: 18px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.09);
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            color: #c7d5e3;
+
+            text-transform: uppercase;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+        }
+
+        .news-main h2 {
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(30px, 4vw, 48px);
+
+            line-height: 1.15;
+
+            max-width: 800px;
+
+            margin-bottom: 15px;
+        }
+
+        .news-main p {
+            max-width: 700px;
+
+            color: #9eafc0;
+
+            margin-bottom: 22px;
+        }
+
+        .news-meta {
+            display: flex;
+
+            gap: 18px;
+
+            color: #71869b;
+
+            font-size: 12px;
+        }
+
+
+        /* SIDE NEWS */
+
+        .news-side {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .news-side-card {
+            flex: 1;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.045);
+
+            transition: .3s ease;
+        }
+
+        .news-side-card:hover {
+            transform: translateX(5px);
+
+            background:
+                rgba(255,255,255,.075);
+        }
+
+        .news-side-card h3 {
+            font-size: 19px;
+
+            margin: 10px 0;
+        }
+
+        .news-side-card p {
+            color: #879bad;
+
+            font-size: 13px;
+        }
+
+
+        /* NEWS GRID */
+
+        .news-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .news-item {
+            padding: 27px;
+
+            min-height: 245px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.025)
+                );
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(180,205,230,.2);
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,.2);
+        }
+
+        .news-item .news-tag {
+            margin-bottom: 10px;
+        }
+
+        .news-item h3 {
+            font-size: 19px;
+
+            line-height: 1.35;
+
+            margin-bottom: 12px;
+        }
+
+        .news-item p {
+            color: #879bad;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .news-item .news-meta {
+            margin-top: 20px;
+        }
+
+
+        /* CATEGORY BAR */
+
+        .news-filter {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            margin-bottom: 30px;
+        }
+
+        .news-filter span {
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            color: #8fa4b8;
+
+            background:
+                rgba(255,255,255,.035);
+
+            font-size: 12px;
+
+            transition: .2s ease;
+        }
+
+        .news-filter span:hover,
+        .news-filter .active {
+            color: white;
+
+            background:
+                rgba(255,255,255,.1);
+        }
+
+
+        /* ARCHIVE */
+
+        .archive {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .archive a {
+            display: block;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #9fb0c0;
+
+            text-decoration: none;
+
+            transition: .25s ease;
+        }
+
+        .archive a strong {
+            display: block;
+
+            color: #e1e8ee;
+
+            font-size: 18px;
+
+            margin-bottom: 4px;
+        }
+
+        .archive a:hover {
+            background:
+                rgba(255,255,255,.08);
+
+            transform: translateY(-3px);
+        }
+
+
+        @media (max-width: 900px) {
+
+            .news-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .archive {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive {
+                grid-template-columns: 1fr;
+            }
+
+            .news-main {
+                padding: 27px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     FLAG
+========================================= -->
+
+<div class="flag-line"></div>
+
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                ★
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Законодательство
+            </a>
+
+            <a href="economy.html">
+                Экономика
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Официальная информация
+        </div>
+
+        <h1>
+            Новости Элендорфа
+        </h1>
+
+        <p>
+            Государственные решения, события,
+            развитие города и важные объявления
+            Королевства.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     BREADCRUMBS
+========================================= -->
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    Новости
+
+</div>
+
+
+
+<!-- =========================================
+     FEATURED NEWS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Главное
+        </div>
+
+        <h2>
+            Последние события
+        </h2>
+
+    </div>
+
+
+    <div class="news-feature">
+
+
+        <!-- MAIN NEWS -->
+
+        <article class="news-main">
+
+            <span class="news-tag">
+                Государство
+            </span>
+
+            <h2>
+                Элендорф продолжает развитие
+                современной городской территории
+            </h2>
+
+            <p>
+                В Королевстве продолжается развитие
+                городской инфраструктуры, деловых районов
+                и современной высотной архитектуры столицы.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    23 августа 2026
+                </span>
+
+                <span>
+                    Официальное сообщение
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- SIDE -->
+
+        <div class="news-side">
+
+
+            <article class="news-side-card">
+
+                <span class="news-tag">
+                    Власть
+                </span>
+
+                <h3>
+                    Обновлена структура
+                    государственных органов
+                </h3>
+
+                <p>
+                    В государственную систему Элендорфа
+                    внесены новые организационные положения.
+                </p>
+
+                <div class="news-meta">
+
+                    <span>
+                        23.08.2026
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="news-side-card">
+
+                <span class="news-tag">
+                    Город
+                </span>
+
+                <h3>
+                    Развитие делового центра столицы
+                </h3>
+
+                <p>
+                    В центральной части Элендорфа
+                    продолжается строительство новых
+                    высотных объектов.
+                </p>
+
+                <div class="news-meta">
+
+                    <span>
+                        22.08.2026
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     NEWS FILTER
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Архив публикаций
+        </div>
+
+        <h2>
+            Все новости
+        </h2>
+
+    </div>
+
+
+    <div class="news-filter">
+
+        <span class="active">
+            Все
+        </span>
+
+        <span>
+            Государство
+        </span>
+
+        <span>
+            Власть
+        </span>
+
+        <span>
+            Экономика
+        </span>
+
+        <span>
+            Город
+        </span>
+
+        <span>
+            Законодательство
+        </span>
+
+    </div>
+
+
+
+    <div class="news-grid">
+
+
+        <!-- NEWS 1 -->
+
+        <article class="news-item">
+
+            <span class="news-tag">
+                Государство
+            </span>
+
+            <h3>
+                Элендорф развивает
+                современную инфраструктуру
+            </h3>
+
+            <p>
+                В столице продолжается строительство
+                новых объектов городской инфраструктуры.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    23 августа 2026
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NEWS 2 -->
+
+        <article class="news-item">
+
+            <span class="news-tag">
+                Власть
+            </span>
+
+            <h3>
+                Государственные органы
+                продолжают работу
+            </h3>
+
+            <p>
+                Государственные учреждения Элендорфа
+                осуществляют текущее управление
+                и реализацию государственных решений.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    22 августа 2026
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NEWS 3 -->
+
+        <article class="news-item">
+
+            <span class="news-tag">
+                Город
+            </span>
+
+            <h3>
+                Расширяется городской
+                деловой район
+            </h3>
+
+            <p>
+                В центральной части столицы формируется
+                современный деловой кластер.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    21 августа 2026
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NEWS 4 -->
+
+        <article class="news-item">
+
+            <span class="news-tag">
+                Экономика
+            </span>
+
+            <h3>
+                Экономическая система
+                Элендорфа развивается
+            </h3>
+
+            <p>
+                В государстве продолжается развитие
+                торговли, строительства и городской экономики.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    20 августа 2026
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NEWS 5 -->
+
+        <article class="news-item">
+
+            <span class="news-tag">
+                Законодательство
+            </span>
+
+            <h3>
+                Обновляется государственная
+                нормативная база
+            </h3>
+
+            <p>
+                Продолжается систематизация Конституции,
+                кодексов и государственных актов.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    19 августа 2026
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- NEWS 6 -->
+
+        <article class="news-item">
+
+            <span class="news-tag">
+                Официально
+            </span>
+
+            <h3>
+                Официальный портал
+                Элендорфа продолжает работу
+            </h3>
+
+            <p>
+                Государственный информационный портал
+                объединяет сведения о государстве,
+                власти и законодательстве.
+            </p>
+
+            <div class="news-meta">
+
+                <span>
+                    18 августа 2026
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ARCHIVE
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Архив
+        </div>
+
+        <h2>
+            По годам
+        </h2>
+
+    </div>
+
+
+    <div class="archive">
+
+        <a href="#">
+
+            <strong>
+                2026
+            </strong>
+
+            Новости текущего года
+
+        </a>
+
+
+        <a href="#">
+
+            <strong>
+                2025
+            </strong>
+
+            Архив публикаций
+
+        </a>
+
+
+        <a href="#">
+
+            <strong>
+                2024
+            </strong>
+
+            Архив публикаций
+
+        </a>
+
+
+        <a href="#">
+
+            <strong>
+                Все годы
+            </strong>
+
+            Полный архив
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     OFFICIAL NOTE
+========================================= -->
+
+<section class="section">
+
+    <div class="document">
+
+        <h2>
+            Официальное примечание
+        </h2>
+
+        <p>
+            Новостной раздел предназначен для публикации
+            официальных сообщений, государственных решений,
+            объявлений и материалов о развитии Элендорфа.
+        </p>
+
+        <div class="info-box warning-box">
+
+            Элендорф является виртуальным государственным
+            проектом. Новости и государственные события,
+            опубликованные здесь, относятся к внутренней
+            деятельности проекта.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="legal.html">
+            Правовая информация
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+</body>
+</html>

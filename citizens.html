@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Граждане — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Граждане Королевства Элендорф, гражданство, права и обязанности.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           CITIZENS
+        ========================================= */
+
+        .citizen-hero {
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr .6fr;
+
+            gap: 22px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .citizen-main {
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30,65,98,.75),
+                    rgba(255,255,255,.025)
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .citizen-main::after {
+
+            content: "Э";
+
+            position: absolute;
+
+            right: 30px;
+            top: -35px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 240px;
+
+            color:
+                rgba(255,255,255,.025);
+        }
+
+
+        .citizen-main h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        .citizen-main p {
+
+            color: #9eafc0;
+
+            max-width: 700px;
+
+            position: relative;
+
+            z-index: 1;
+
+            line-height: 1.7;
+        }
+
+
+        .citizen-number {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 230px;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            text-align: center;
+        }
+
+
+        .citizen-number strong {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 54px;
+
+            color: #e1e7ed;
+        }
+
+
+        .citizen-number span {
+
+            color: #8397aa;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-top: 8px;
+        }
+
+
+        /* =========================================
+           CARDS
+        ========================================= */
+
+        .citizen-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .citizen-card {
+
+            padding: 28px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.06),
+                    rgba(255,255,255,.025)
+                );
+
+            transition: .3s ease;
+        }
+
+
+        .citizen-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color:
+                rgba(180,205,230,.22);
+        }
+
+
+        .citizen-icon {
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            margin-bottom: 18px;
+
+            font-size: 22px;
+        }
+
+
+        .citizen-card h3 {
+
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .citizen-card p {
+
+            color: #899daf;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           RIGHTS
+        ========================================= */
+
+        .rights-columns {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .rights-box {
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .rights-box h3 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 27px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .rights-list {
+
+            list-style: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+        }
+
+
+        .rights-list li {
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #9aabba;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        .rights-list li::before {
+
+            margin-right: 10px;
+
+            font-weight: bold;
+        }
+
+
+        .rights-list.good li::before {
+
+            content: "✓";
+
+            color: #b9c9d6;
+        }
+
+
+        .rights-list.bad li::before {
+
+            content: "•";
+
+            color: #8c9dad;
+        }
+
+
+        /* =========================================
+           CITIZENSHIP
+        ========================================= */
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            counter-reset: steps;
+        }
+
+
+        .step {
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.035);
+
+            position: relative;
+        }
+
+
+        .step-number {
+
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.08);
+
+            color: #d8e0e7;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        .step h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .step p {
+
+            color: #8498ab;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           STATUS
+        ========================================= */
+
+        .status-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .status-card {
+
+            padding: 22px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            text-align: center;
+        }
+
+
+        .status-card strong {
+
+            display: block;
+
+            font-size: 25px;
+
+            color: #dce4eb;
+
+            margin-bottom: 6px;
+        }
+
+
+        .status-card span {
+
+            color: #8296a9;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .citizen-hero {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .citizen-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .steps {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .status-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .citizen-main {
+
+                padding: 27px;
+            }
+
+
+            .citizen-grid,
+            .rights-columns,
+            .steps,
+            .status-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="flag-line"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                ★
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Законодательство
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Население государства
+        </div>
+
+        <h1>
+            Граждане Элендорфа
+        </h1>
+
+        <p>
+            Сведения о гражданстве, правах,
+            обязанностях и статусе жителей
+            Королевства Элендорф.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BREADCRUMBS
+========================================= -->
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    Граждане
+
+</div>
+
+
+<!-- =========================================
+     CITIZEN HERO
+========================================= -->
+
+<section class="section">
+
+
+    <div class="citizen-hero">
+
+
+        <div class="citizen-main">
+
+            <h2>
+                Гражданство Элендорфа
+            </h2>
+
+            <p>
+                Гражданин Элендорфа — участник
+                виртуального государства, обладающий
+                установленными государством правами
+                и обязанностями.
+            </p>
+
+        </div>
+
+
+        <div class="citizen-number">
+
+            <strong>
+                20 000+
+            </strong>
+
+            <span>
+                жителей государства
+            </span>
+
+        </div>
+
+    </div>
+
+
+<!-- =========================================
+     STATUS
+========================================= -->
+
+    <div class="status-grid">
+
+        <div class="status-card">
+
+            <strong>
+                20 000+
+            </strong>
+
+            <span>
+                Население
+            </span>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <strong>
+                2+
+            </strong>
+
+            <span>
+                км² территории
+            </span>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <strong>
+                2
+            </strong>
+
+            <span>
+                государственных языка
+            </span>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <strong>
+                3
+            </strong>
+
+            <span>
+                основные валюты
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     RIGHTS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Статус гражданина
+        </div>
+
+        <h2>
+            Права и обязанности
+        </h2>
+
+    </div>
+
+
+    <div class="rights-columns">
+
+
+        <div class="rights-box">
+
+            <h3>
+                Права граждан
+            </h3>
+
+            <ul class="rights-list good">
+
+                <li>
+                    Участие во внутренней жизни государства
+                </li>
+
+                <li>
+                    Свободное выражение своего мнения
+                </li>
+
+                <li>
+                    Участие в государственных мероприятиях
+                </li>
+
+                <li>
+                    Использование государственных ресурсов
+                    в установленном порядке
+                </li>
+
+                <li>
+                    Обращение к государственным органам
+                </li>
+
+                <li>
+                    Получение информации о деятельности
+                    государственных органов
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="rights-box">
+
+            <h3>
+                Обязанности граждан
+            </h3>
+
+            <ul class="rights-list bad">
+
+                <li>
+                    Соблюдать Конституцию и законы Элендорфа
+                </li>
+
+                <li>
+                    Уважать других граждан государства
+                </li>
+
+                <li>
+                    Не нарушать общественный порядок
+                </li>
+
+                <li>
+                    Соблюдать правила проекта
+                </li>
+
+                <li>
+                    Не выдавать себя за государственные органы
+                </li>
+
+                <li>
+                    Бережно относиться к государственным объектам
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CITIZENSHIP PROCESS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Приобретение гражданства
+        </div>
+
+        <h2>
+            Как стать гражданином
+        </h2>
+
+        <p class="section-description">
+            Внутренний порядок оформления гражданства
+            в рамках виртуального государства.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <h3>
+                Заявление
+            </h3>
+
+            <p>
+                Кандидат подаёт заявление
+                на получение гражданства.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <h3>
+                Проверка
+            </h3>
+
+            <p>
+                Администрация рассматривает
+                заявление и проверяет соответствие
+                требованиям проекта.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <h3>
+                Решение
+            </h3>
+
+            <p>
+                Уполномоченный государственный орган
+                принимает решение о предоставлении
+                гражданства.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <h3>
+                Регистрация
+            </h3>
+
+            <p>
+                После одобрения гражданин вносится
+                во внутренний реестр граждан.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DOCUMENT
+========================================= -->
+
+<section class="section">
+
+
+    <div class="document">
+
+        <h2>
+            Реестр граждан
+        </h2>
+
+        <p>
+            Государство может вести внутренний реестр
+            граждан для учёта участников проекта,
+            занимаемых должностей и государственных
+            полномочий.
+        </p>
+
+        <div class="info-box">
+
+            Персональные данные граждан не должны
+            публиковаться на открытом сайте без
+            соответствующего согласия.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="news.html">
+            Новости
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+</body>
+
+</html>

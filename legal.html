@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Юридические сведения — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Юридические сведения официального портала Королевства Элендорф. Статус проекта, документы, авторские права и правила использования сайта.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           LEGAL HERO
+        ========================================= */
+
+        .legal-intro {
+
+            padding: 42px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30,65,98,.78),
+                    rgba(255,255,255,.025)
+                );
+
+            margin-bottom: 25px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .legal-intro::after {
+
+            content: "§";
+
+            position: absolute;
+
+            right: 35px;
+            top: -70px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 280px;
+
+            color:
+                rgba(255,255,255,.025);
+        }
+
+
+        .legal-intro h2 {
+
+            position: relative;
+
+            z-index: 1;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .legal-intro p {
+
+            position: relative;
+
+            z-index: 1;
+
+            max-width: 800px;
+
+            color: #a0b0bf;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           IMPORTANT NOTICE
+        ========================================= */
+
+        .legal-alert {
+
+            padding: 25px 28px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            margin-bottom: 30px;
+        }
+
+
+        .legal-alert strong {
+
+            display: block;
+
+            color: #dce4ea;
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .legal-alert p {
+
+            color: #8ea1b2;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* =========================================
+           LEGAL CARDS
+        ========================================= */
+
+        .legal-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .legal-card {
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.025)
+                );
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease;
+        }
+
+
+        .legal-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(180,205,230,.2);
+        }
+
+
+        .legal-icon {
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            margin-bottom: 17px;
+
+            font-size: 21px;
+        }
+
+
+        .legal-card h3 {
+
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .legal-card p {
+
+            color: #8c9eaf;
+
+            font-size: 13px;
+
+            line-height: 1.75;
+        }
+
+
+        /* =========================================
+           DOCUMENTS
+        ========================================= */
+
+        .document-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+
+        .document-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 19px 21px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            transition: .25s ease;
+        }
+
+
+        .document-item:hover {
+
+            background:
+                rgba(255,255,255,.06);
+        }
+
+
+        .document-info strong {
+
+            display: block;
+
+            color: #d8e0e7;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .document-info span {
+
+            color: #7f93a5;
+
+            font-size: 11px;
+        }
+
+
+        .document-link {
+
+            color: #aebdca;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+        }
+
+
+        .document-link:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           RULES
+        ========================================= */
+
+        .legal-rules {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .rule {
+
+            padding: 24px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
+
+
+        .rule-number {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 28px;
+
+            color: #cbd5dd;
+
+            margin-bottom: 10px;
+        }
+
+
+        .rule h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .rule p {
+
+            color: #8498aa;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================
+           DISCLAIMER
+        ========================================= */
+
+        .disclaimer {
+
+            padding: 35px;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(50,72,92,.35),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.08);
+        }
+
+
+        .disclaimer h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .disclaimer p {
+
+            color: #91a4b6;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .legal-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .legal-rules {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .legal-intro {
+
+                padding: 28px;
+            }
+
+
+            .legal-rules {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .document-item {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     FLAG LINE
+========================================= -->
+
+<div class="flag-line"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                §
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Законодательство
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Правовая информация
+        </div>
+
+        <h1>
+            Юридические сведения
+        </h1>
+
+        <p>
+            Статус официального портала,
+            правила использования материалов
+            и юридические примечания проекта.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BREADCRUMBS
+========================================= -->
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    Юридические сведения
+
+</div>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="section">
+
+    <div class="legal-intro">
+
+        <h2>
+            Правовой статус портала
+        </h2>
+
+        <p>
+            Данный сайт является официальным информационным
+            порталом виртуального государства Королевство
+            Элендорф и создан в рамках творческого проекта,
+            связанного с Minecraft.
+        </p>
+
+    </div>
+
+
+    <div class="legal-alert">
+
+        <strong>
+            ⚠ Важное уведомление
+        </strong>
+
+        <p>
+            Элендорф является виртуальным государственным
+            проектом. Представленные на сайте государственные
+            органы, законы, должности, экономика и иные
+            государственные институты относятся к внутреннему
+            миру и правилам проекта.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     LEGAL AREAS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Основные положения
+        </div>
+
+        <h2>
+            Правовые сведения
+        </h2>
+
+    </div>
+
+
+    <div class="legal-grid">
+
+
+        <div class="legal-card">
+
+            <div class="legal-icon">
+                ©
+            </div>
+
+            <h3>
+                Авторские права
+            </h3>
+
+            <p>
+                Оригинальные тексты, дизайн,
+                программный код и другие материалы
+                проекта охраняются в соответствии
+                с применимыми правилами об
+                интеллектуальной собственности.
+            </p>
+
+        </div>
+
+
+        <div class="legal-card">
+
+            <div class="legal-icon">
+                🌐
+            </div>
+
+            <h3>
+                Виртуальный статус
+            </h3>
+
+            <p>
+                Элендорф не заявляется как реально
+                существующее государство. Все
+                государственные институты существуют
+                в рамках виртуального проекта.
+            </p>
+
+        </div>
+
+
+        <div class="legal-card">
+
+            <div class="legal-icon">
+                📄
+            </div>
+
+            <h3>
+                Государственные документы
+            </h3>
+
+            <p>
+                Конституция, кодексы, указы и другие
+                документы публикуются как элементы
+                внутренней правовой системы
+                виртуального государства.
+            </p>
+
+        </div>
+
+
+        <div class="legal-card">
+
+            <div class="legal-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Защита проекта
+            </h3>
+
+            <p>
+                Копирование оригинального оформления,
+                кода или материалов с выдачей их
+                за собственную работу не допускается.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DOCUMENTS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Документы
+        </div>
+
+        <h2>
+            Основные правовые документы
+        </h2>
+
+    </div>
+
+
+    <div class="document-list">
+
+
+        <div class="document-item">
+
+            <div class="document-info">
+
+                <strong>
+                    Конституция Элендорфа
+                </strong>
+
+                <span>
+                    Основной закон виртуального государства
+                </span>
+
+            </div>
+
+            <a
+                href="constitution.html"
+                class="document-link">
+
+                Открыть →
+
+            </a>
+
+        </div>
+
+
+        <div class="document-item">
+
+            <div class="document-info">
+
+                <strong>
+                    Уголовный кодекс Элендорфа
+                </strong>
+
+                <span>
+                    Нормы уголовного законодательства проекта
+                </span>
+
+            </div>
+
+            <a
+                href="criminal-code.html"
+                class="document-link">
+
+                Открыть →
+
+            </a>
+
+        </div>
+
+
+        <div class="document-item">
+
+            <div class="document-info">
+
+                <strong>
+                    Указы Короля
+                </strong>
+
+                <span>
+                    Официальные распоряжения главы государства
+                </span>
+
+            </div>
+
+            <a
+                href="decrees.html"
+                class="document-link">
+
+                Открыть →
+
+            </a>
+
+        </div>
+
+
+        <div class="document-item">
+
+            <div class="document-info">
+
+                <strong>
+                    Авторские права
+                </strong>
+
+                <span>
+                    Порядок использования материалов портала
+                </span>
+
+            </div>
+
+            <a
+                href="copyright.html"
+                class="document-link">
+
+                Открыть →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     RULES
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Использование сайта
+        </div>
+
+        <h2>
+            Основные правила
+        </h2>
+
+    </div>
+
+
+    <div class="legal-rules">
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                01
+            </div>
+
+            <h3>
+                Достоверность
+            </h3>
+
+            <p>
+                Материалы сайта отражают состояние
+                виртуального проекта на момент
+                их публикации.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                02
+            </div>
+
+            <h3>
+                Использование
+            </h3>
+
+            <p>
+                Материалы сайта не должны использоваться
+                таким образом, чтобы создавать ложное
+                впечатление официального представительства.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                03
+            </div>
+
+            <h3>
+                Копирование
+            </h3>
+
+            <p>
+                Копирование оригинального дизайна,
+                кода и содержимого с выдачей
+                за собственную работу запрещается.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                04
+            </div>
+
+            <h3>
+                Сторонние материалы
+            </h3>
+
+            <p>
+                Изображения, шрифты, библиотеки и другие
+                сторонние материалы могут иметь отдельных
+                правообладателей.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                05
+            </div>
+
+            <h3>
+                Ссылки
+            </h3>
+
+            <p>
+                Размещение обычной ссылки на портал
+                допускается, если она не вводит
+                пользователей в заблуждение.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                06
+            </div>
+
+            <h3>
+                Изменения
+            </h3>
+
+            <p>
+                Администрация проекта может изменять
+                структуру, содержание и оформление
+                портала по мере развития Элендорфа.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     DISCLAIMER
+========================================= -->
+
+<section class="section">
+
+    <div class="disclaimer">
+
+        <h2>
+            Отказ от реального государственного статуса
+        </h2>
+
+        <p>
+            Наименование «Королевство Элендорф»,
+            государственные органы, должности,
+            законодательные акты и иные элементы,
+            представленные на данном портале,
+            являются частью виртуального мира проекта.
+        </p>
+
+        <p>
+            Они не предоставляют их обладателям
+            реальных государственных полномочий
+            и не заменяют законодательство реально
+            существующих государств.
+        </p>
+
+        <p>
+            Использование терминов «Король»,
+            «правительство», «суд», «закон»,
+            «гражданство» и аналогичных терминов
+            осуществляется исключительно в рамках
+            концепции виртуального государства.
+        </p>
+
+        <div class="info-box">
+
+            <strong>
+                Статус:
+            </strong>
+
+            виртуальное государство ·
+            Minecraft-проект ·
+            информационно-творческая деятельность
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+        <a href="legal.html">
+            Юридические сведения
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="news.html">
+            Новости
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+</body>
+
+</html>

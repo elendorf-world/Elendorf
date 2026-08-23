@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>О сайте — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Информация об официальном портале Королевства Элендорф, его назначении, структуре и создателях.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-intro {
+
+            display: grid;
+
+            grid-template-columns:
+                1.3fr .7fr;
+
+            gap: 22px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .about-main {
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30,65,98,.75),
+                    rgba(255,255,255,.025)
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .about-main::after {
+
+            content: "Э";
+
+            position: absolute;
+
+            right: 30px;
+            top: -50px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 250px;
+
+            color:
+                rgba(255,255,255,.025);
+        }
+
+
+        .about-main h2 {
+
+            position: relative;
+
+            z-index: 1;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .about-main p {
+
+            position: relative;
+
+            z-index: 1;
+
+            color: #9eafc0;
+
+            max-width: 700px;
+
+            line-height: 1.75;
+        }
+
+
+        .about-symbol {
+
+            min-height: 240px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.045);
+
+            text-align: center;
+        }
+
+
+        .about-symbol .symbol {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 85px;
+
+            color: #d9e1e8;
+
+            line-height: 1;
+        }
+
+
+        .about-symbol span {
+
+            margin-top: 15px;
+
+            color: #8094a7;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           CARDS
+        ========================================= */
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .about-card {
+
+            padding: 28px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.06),
+                    rgba(255,255,255,.025)
+                );
+
+            transition: .3s ease;
+        }
+
+
+        .about-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(180,205,230,.22);
+        }
+
+
+        .about-icon {
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .about-card h3 {
+
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .about-card p {
+
+            color: #8c9fb1;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           CREATORS
+        ========================================= */
+
+        .creators {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .creator {
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.035);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .creator-avatar {
+
+            width: 65px;
+            height: 65px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            font-size: 27px;
+        }
+
+
+        .creator h3 {
+
+            margin-bottom: 5px;
+
+            font-size: 18px;
+        }
+
+
+        .creator p {
+
+            color: #879bad;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           WEBSITE STRUCTURE
+        ========================================= */
+
+        .site-map {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .site-map a {
+
+            padding: 18px 20px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #a3b3c1;
+
+            text-decoration: none;
+
+            transition: .25s ease;
+        }
+
+
+        .site-map a strong {
+
+            display: block;
+
+            color: #dbe3e9;
+
+            margin-bottom: 4px;
+        }
+
+
+        .site-map a:hover {
+
+            transform: translateX(5px);
+
+            background:
+                rgba(255,255,255,.075);
+        }
+
+
+        /* =========================================
+           NOTICE
+        ========================================= */
+
+        .about-notice {
+
+            padding: 32px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(50,72,92,.35),
+                    rgba(255,255,255,.025)
+                );
+        }
+
+
+        .about-notice h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 29px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .about-notice p {
+
+            color: #96a8b9;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .about-intro {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .creators {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .about-main {
+
+                padding: 27px;
+            }
+
+
+            .about-grid,
+            .site-map {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .creator {
+
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     FLAG
+========================================= -->
+
+<div class="flag-line"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                ★
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Законодательство
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Официальный портал
+        </div>
+
+        <h1>
+            О сайте
+        </h1>
+
+        <p>
+            Информация о назначении, структуре
+            и создании официального интернет-портала
+            Королевства Элендорф.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BREADCRUMBS
+========================================= -->
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    О сайте
+
+</div>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="section">
+
+    <div class="about-intro">
+
+
+        <div class="about-main">
+
+            <h2>
+                Добро пожаловать
+            </h2>
+
+            <p>
+                Официальный портал Королевства Элендорф —
+                единая информационная площадка, посвящённая
+                государству, его органам власти,
+                законодательству, экономике, гражданам
+                и событиям.
+            </p>
+
+            <p>
+                Портал создан для того, чтобы собрать
+                информацию об Элендорфе в одном месте
+                и представить её в едином современном
+                визуальном стиле.
+            </p>
+
+        </div>
+
+
+        <div class="about-symbol">
+
+            <div class="symbol">
+                Э
+            </div>
+
+            <span>
+                Королевство Элендорф
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PURPOSE
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Назначение
+        </div>
+
+        <h2>
+            Для чего создан сайт
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Государство
+            </h3>
+
+            <p>
+                Представление территории, населения,
+                государственных символов, языков,
+                валюты и других сведений об Элендорфе.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Законодательство
+            </h3>
+
+            <p>
+                Публикация Конституции, кодексов,
+                указов и других нормативных документов
+                виртуального государства.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                📰
+            </div>
+
+            <h3>
+                Новости
+            </h3>
+
+            <p>
+                Официальные сообщения о развитии
+                государства, строительстве и работе
+                государственных органов.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                👑
+            </div>
+
+            <h3>
+                Государственная власть
+            </h3>
+
+            <p>
+                Информация о Короле, Заместителе Короля,
+                Государственном совете и других
+                государственных учреждениях.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                👥
+            </div>
+
+            <h3>
+                Граждане
+            </h3>
+
+            <p>
+                Информация о гражданстве, правах,
+                обязанностях и участии жителей
+                в жизни виртуального государства.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🏙️
+            </div>
+
+            <h3>
+                Город
+            </h3>
+
+            <p>
+                Представление городской территории,
+                районов, архитектуры и развития
+                столицы Элендорфа.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CREATORS
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Создание проекта
+        </div>
+
+        <h2>
+            Основатели
+        </h2>
+
+    </div>
+
+
+    <div class="creators">
+
+
+        <div class="creator">
+
+            <div class="creator-avatar">
+                👑
+            </div>
+
+            <div>
+
+                <h3>
+                    Основатель Элендорфа
+                </h3>
+
+                <p>
+                    Основатель государства и создатель
+                    концепции проекта.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="creator">
+
+            <div class="creator-avatar">
+                🤝
+            </div>
+
+            <div>
+
+                <h3>
+                    Сооснователь
+                </h3>
+
+                <p>
+                    Сооснователь государства и участник
+                    развития проекта.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WEBSITE STRUCTURE
+========================================= -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Навигация
+        </div>
+
+        <h2>
+            Разделы портала
+        </h2>
+
+    </div>
+
+
+    <div class="site-map">
+
+        <a href="state.html">
+
+            <strong>
+                О государстве
+            </strong>
+
+            Общая информация об Элендорфе
+
+        </a>
+
+
+        <a href="government.html">
+
+            <strong>
+                Государственная власть
+            </strong>
+
+            Государственные органы и должности
+
+        </a>
+
+
+        <a href="constitution.html">
+
+            <strong>
+                Конституция
+            </strong>
+
+            Основной закон государства
+
+        </a>
+
+
+        <a href="criminal-code.html">
+
+            <strong>
+                Уголовный кодекс
+            </strong>
+
+            Уголовное законодательство
+
+        </a>
+
+
+        <a href="decrees.html">
+
+            <strong>
+                Указы
+            </strong>
+
+            Реестр указов главы государства
+
+        </a>
+
+
+        <a href="economy.html">
+
+            <strong>
+                Экономика
+            </strong>
+
+            Экономические показатели
+
+        </a>
+
+
+        <a href="citizens.html">
+
+            <strong>
+                Граждане
+            </strong>
+
+            Права и обязанности граждан
+
+        </a>
+
+
+        <a href="cities.html">
+
+            <strong>
+                Города
+            </strong>
+
+            Городская территория и районы
+
+        </a>
+
+
+        <a href="news.html">
+
+            <strong>
+                Новости
+            </strong>
+
+            Последние события
+
+        </a>
+
+
+        <a href="copyright.html">
+
+            <strong>
+                Авторские права
+            </strong>
+
+            Правила использования материалов
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     STATUS
+========================================= -->
+
+<section class="section">
+
+    <div class="about-notice">
+
+        <h2>
+            Статус проекта
+        </h2>
+
+        <p>
+            Королевство Элендорф представляет собой
+            виртуальный государственный проект,
+            развиваемый в игровой среде Minecraft.
+        </p>
+
+        <p>
+            Государственные органы, законодательство,
+            экономика, гражданство и иные элементы,
+            представленные на данном портале, являются
+            частью внутренней концепции проекта.
+        </p>
+
+        <p>
+            Сайт создан в информационных и
+            творческих целях и не является официальным
+            государственным сайтом какого-либо
+            реально существующего государства.
+        </p>
+
+        <div class="info-box">
+
+            <strong>
+                Элендорф — виртуальное государство.
+            </strong>
+
+            <br>
+
+            Все государственные институты и документы
+            действуют в рамках проекта.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="news.html">
+            Новости
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+</body>
+
+</html>

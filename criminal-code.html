@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Уголовный кодекс — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Уголовный кодекс Королевства Элендорф. Разделы, статьи, составы правонарушений и предусмотренные наказания.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           CODE HERO
+        ========================================= */
+
+        .code-hero {
+
+            padding: 45px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30,65,98,.8),
+                    rgba(255,255,255,.025)
+                );
+
+            position: relative;
+
+            overflow: hidden;
+
+            margin-bottom: 30px;
+        }
+
+
+        .code-hero::after {
+
+            content: "§";
+
+            position: absolute;
+
+            right: 40px;
+            top: -80px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 300px;
+
+            color:
+                rgba(255,255,255,.025);
+        }
+
+
+        .code-number {
+
+            position: relative;
+
+            z-index: 1;
+
+            color: #879bab;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .code-hero h2 {
+
+            position: relative;
+
+            z-index: 1;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 43px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .code-hero p {
+
+            position: relative;
+
+            z-index: 1;
+
+            color: #9aabba;
+
+            max-width: 780px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           SEARCH
+        ========================================= */
+
+        .code-search {
+
+            margin-bottom: 30px;
+
+            position: relative;
+        }
+
+
+        .code-search input {
+
+            width: 100%;
+
+            padding: 17px 20px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                rgba(255,255,255,.045);
+
+            color: #dbe4ea;
+
+            outline: none;
+
+            font-size: 13px;
+        }
+
+
+        .code-search input::placeholder {
+
+            color: #718597;
+        }
+
+
+        .code-search input:focus {
+
+            border-color:
+                rgba(180,205,230,.25);
+        }
+
+
+        /* =========================================
+           CODE STRUCTURE
+        ========================================= */
+
+        .code-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                270px 1fr;
+
+            gap: 25px;
+
+            align-items: start;
+        }
+
+
+        .code-sidebar {
+
+            position: sticky;
+
+            top: 25px;
+
+            padding: 22px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
+
+
+        .code-sidebar-title {
+
+            color: #8194a6;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .code-sidebar a {
+
+            display: block;
+
+            padding: 10px 12px;
+
+            border-radius: 8px;
+
+            color: #9aacbc;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            margin-bottom: 4px;
+
+            transition: .2s ease;
+        }
+
+
+        .code-sidebar a:hover {
+
+            background:
+                rgba(255,255,255,.06);
+
+            color: #d9e1e7;
+        }
+
+
+        /* =========================================
+           ARTICLE
+        ========================================= */
+
+        .code-section {
+
+            margin-bottom: 35px;
+        }
+
+
+        .code-section-title {
+
+            padding-bottom: 15px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+            margin-bottom: 17px;
+        }
+
+
+        .code-section-title span {
+
+            display: block;
+
+            color: #7e92a4;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .code-section-title h2 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 28px;
+        }
+
+
+        .article {
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.065);
+
+            margin-bottom: 12px;
+
+            transition:
+                background .25s ease,
+                border-color .25s ease;
+        }
+
+
+        .article:hover {
+
+            background:
+                rgba(255,255,255,.05);
+
+            border-color:
+                rgba(255,255,255,.11);
+        }
+
+
+        .article-title {
+
+            display: flex;
+
+            align-items: baseline;
+
+            gap: 12px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .article-number {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 22px;
+
+            color: #d8e0e7;
+
+            white-space: nowrap;
+        }
+
+
+        .article-name {
+
+            font-size: 15px;
+
+            color: #b9c6d0;
+
+        }
+
+
+        .article p {
+
+            color: #8c9eaf;
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            margin-bottom: 8px;
+        }
+
+
+        .punishment {
+
+            margin-top: 15px;
+
+            padding: 13px 15px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border-left:
+                3px solid rgba(180,205,230,.35);
+
+            color: #9cabb8;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+        }
+
+
+        .part {
+
+            margin-top: 13px;
+
+            padding-left: 15px;
+
+            border-left:
+                1px solid rgba(255,255,255,.08);
+        }
+
+
+        .part strong {
+
+            color: #c2ced7;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           CODE FOOTNOTE
+        ========================================= */
+
+        .code-note {
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            color: #8799aa;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .code-layout {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .code-sidebar {
+
+                position: static;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .code-hero {
+
+                padding: 28px;
+            }
+
+
+            .article-title {
+
+                flex-direction: column;
+
+                gap: 3px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="flag-line"></div>
+
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                §
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Конституция
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Законодательство Элендорфа
+        </div>
+
+        <h1>
+            Уголовный кодекс
+        </h1>
+
+        <p>
+            Официальная редакция Уголовного кодекса
+            виртуального государства Королевство Элендорф.
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    <a href="constitution.html">
+        Законодательство
+    </a>
+
+    <span>›</span>
+
+    Уголовный кодекс
+
+</div>
+
+
+<section class="section">
+
+
+    <div class="code-hero">
+
+        <div class="code-number">
+            УК РЭ · Основной уголовный закон
+        </div>
+
+        <h2>
+            Уголовный кодекс
+            Королевства Элендорф
+        </h2>
+
+        <p>
+            Настоящий Кодекс устанавливает основные
+            виды уголовных правонарушений, основания
+            ответственности и предусмотренные проектом
+            меры наказания.
+        </p>
+
+    </div>
+
+
+    <!-- ПОИСК -->
+
+    <div class="code-search">
+
+        <input
+            type="search"
+            id="articleSearch"
+            placeholder="Поиск по статьям, например: убийство, кража, вред..." >
+
+    </div>
+
+
+    <div class="code-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="code-sidebar">
+
+            <div class="code-sidebar-title">
+                Разделы
+            </div>
+
+            <a href="#general">
+                Раздел I — Общие положения
+            </a>
+
+            <a href="#punishments">
+                Раздел II — Наказания
+            </a>
+
+            <a href="#crimes">
+                Раздел III — Преступления
+            </a>
+
+            <a href="#property">
+                Раздел IV — Собственность
+            </a>
+
+        </aside>
+
+
+        <!-- CONTENT -->
+
+        <main>
+
+
+            <!-- РАЗДЕЛ I -->
+
+            <div
+                class="code-section"
+                id="general">
+
+                <div class="code-section-title">
+
+                    <span>
+                        Раздел I
+                    </span>
+
+                    <h2>
+                        Общие положения
+                    </h2>
+
+                </div>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 1 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Назначение Кодекса
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Настоящий Кодекс определяет
+                        основания уголовной ответственности
+                        и устанавливает виды наказаний
+                        за преступления в рамках
+                        виртуального государства.
+                    </p>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 2 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Действие Кодекса
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Положения настоящего Кодекса
+                        применяются к участникам проекта
+                        в пределах территории и игровой
+                        системы Элендорфа.
+                    </p>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 3 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Принцип ответственности
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Ответственность наступает только
+                        за деяние, прямо предусмотренное
+                        настоящим Кодексом.
+                    </p>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 4 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Вина
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Лицо несёт ответственность при
+                        наличии установленной вины
+                        в совершённом деянии.
+                    </p>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 5 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Возраст ответственности
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Возраст наступления ответственности
+                        определяется внутренними правилами
+                        проекта и решениями уполномоченных
+                        органов Элендорфа.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <!-- РАЗДЕЛ II -->
+
+            <div
+                class="code-section"
+                id="punishments">
+
+                <div class="code-section-title">
+
+                    <span>
+                        Раздел II
+                    </span>
+
+                    <h2>
+                        Наказания
+                    </h2>
+
+                </div>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 6 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Виды наказаний
+                        </span>
+
+                    </div>
+
+                    <p>
+                        За совершение преступления могут
+                        применяться предусмотренные
+                        настоящим Кодексом меры наказания.
+                    </p>
+
+                    <div class="punishment">
+
+                        Возможные меры:
+                        предупреждение, штраф,
+                        ограничение доступа к проекту,
+                        общественные работы,
+                        лишение гражданского статуса
+                        и иные меры, установленные
+                        законодательством Элендорфа.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 7 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Штраф
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Штраф представляет собой
+                        денежное взыскание, назначаемое
+                        за совершённое правонарушение.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        штраф в размере,
+                        установленном судом
+                        или уполномоченным органом.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 8 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Ограничение доступа
+                        </span>
+
+                    </div>
+
+                    <p>
+                        В отношении нарушителя может быть
+                        временно ограничен доступ
+                        к государственным ресурсам
+                        или территории проекта.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        ограничение доступа
+                        на установленный срок.
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- РАЗДЕЛ III -->
+
+            <div
+                class="code-section"
+                id="crimes">
+
+                <div class="code-section-title">
+
+                    <span>
+                        Раздел III
+                    </span>
+
+                    <h2>
+                        Преступления против личности
+                    </h2>
+
+                </div>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 9 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Умышленное причинение вреда
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Умышленное причинение другому
+                        участнику проекта физического
+                        или игрового вреда.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        штраф, общественные работы
+                        либо временное ограничение
+                        доступа к проекту.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 10 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Убийство
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Умышленное лишение другого
+                        участника проекта жизни
+                        в рамках игровой среды.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        длительное ограничение доступа
+                        либо иная мера, установленная
+                        судом в соответствии с Кодексом.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 11 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Угроза причинения вреда
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Угроза совершением действий,
+                        способных причинить существенный
+                        вред участнику проекта.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        предупреждение, штраф либо
+                        ограничение доступа.
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- РАЗДЕЛ IV -->
+
+            <div
+                class="code-section"
+                id="property">
+
+                <div class="code-section-title">
+
+                    <span>
+                        Раздел IV
+                    </span>
+
+                    <h2>
+                        Преступления против собственности
+                    </h2>
+
+                </div>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 12 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Кража
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Тайное присвоение чужих игровых
+                        предметов, ресурсов или имущества
+                        без согласия владельца.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        возврат имущества,
+                        штраф и при необходимости
+                        ограничение доступа.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 13 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Уничтожение имущества
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Умышленное уничтожение либо
+                        повреждение чужих построек,
+                        сооружений или имущества.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        восстановление ущерба,
+                        штраф либо ограничение доступа.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 14 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Незаконное присвоение
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Присвоение найденного или
+                        временно переданного имущества
+                        при наличии установленного
+                        владельца.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        возврат имущества и штраф.
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <div class="article-title">
+
+                        <span class="article-number">
+                            Ст. 15 УК РЭ
+                        </span>
+
+                        <span class="article-name">
+                            Вандализм
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Умышленное изменение или разрушение
+                        городской инфраструктуры, построек
+                        и иных объектов Элендорфа.
+                    </p>
+
+                    <div class="punishment">
+
+                        Наказание:
+                        восстановление объекта,
+                        штраф либо ограничение доступа.
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- NOTE -->
+
+            <div class="code-note">
+
+                <strong>
+                    Примечание
+                </strong>
+
+                <br><br>
+
+                Настоящая страница является частью
+                виртуальной правовой системы Элендорфа.
+                Указанные нормы регулируют отношения
+                внутри проекта и не являются уголовным
+                законодательством реально существующего
+                государства.
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="constitution.html">
+            Конституция
+        </a>
+
+        <a href="criminal-code.html">
+            Уголовный кодекс
+        </a>
+
+        <a href="decrees.html">
+            Указы
+        </a>
+
+        <a href="legal.html">
+            Юридические сведения
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+<script>
+
+    /* =========================================
+       ПОИСК ПО СТАТЬЯМ
+    ========================================= */
+
+    const search =
+        document.getElementById("articleSearch");
+
+    const articles =
+        document.querySelectorAll(".article");
+
+
+    search.addEventListener("input", function () {
+
+        const query =
+            this.value.toLowerCase().trim();
+
+
+        articles.forEach(function (article) {
+
+            const text =
+                article.textContent.toLowerCase();
+
+
+            if (text.includes(query)) {
+
+                article.style.display = "";
+
+            } else {
+
+                article.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
