@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -17,7 +18,7 @@
     <style>
 
         /* =========================================
-           CITIZENS
+           CITIZENS HERO
         ========================================= */
 
         .citizen-hero {
@@ -30,6 +31,7 @@
             gap: 22px;
 
             margin-bottom: 30px;
+
         }
 
 
@@ -52,6 +54,7 @@
             position: relative;
 
             overflow: hidden;
+
         }
 
 
@@ -62,6 +65,7 @@
             position: absolute;
 
             right: 30px;
+
             top: -35px;
 
             font-family:
@@ -73,6 +77,9 @@
 
             color:
                 rgba(255,255,255,.025);
+
+            pointer-events: none;
+
         }
 
 
@@ -89,7 +96,8 @@
 
             position: relative;
 
-            z-index: 1;
+            z-index: 2;
+
         }
 
 
@@ -101,11 +109,94 @@
 
             position: relative;
 
-            z-index: 1;
+            z-index: 2;
 
             line-height: 1.7;
+
         }
 
+
+        /* =========================================
+           PASSPORT BUTTON
+        ========================================= */
+
+        .citizen-passport-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top: 24px;
+
+            padding: 13px 21px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #315d82,
+                    #244663
+                );
+
+            border:
+                1px solid rgba(180,210,235,.22);
+
+            color: #f1f5f8;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            position: relative;
+
+            z-index: 3;
+
+            cursor: pointer;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .citizen-passport-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3a6d96,
+                    #2b5272
+                );
+
+            border-color:
+                rgba(200,225,245,.35);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,.22);
+
+        }
+
+
+        .citizen-passport-button:active {
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =========================================
+           CITIZEN NUMBER
+        ========================================= */
 
         .citizen-number {
 
@@ -130,6 +221,7 @@
                 1px solid rgba(255,255,255,.08);
 
             text-align: center;
+
         }
 
 
@@ -143,6 +235,7 @@
             font-size: 54px;
 
             color: #e1e7ed;
+
         }
 
 
@@ -157,6 +250,7 @@
             letter-spacing: 1.5px;
 
             margin-top: 8px;
+
         }
 
 
@@ -172,6 +266,7 @@
                 repeat(3, 1fr);
 
             gap: 20px;
+
         }
 
 
@@ -191,27 +286,33 @@
                     rgba(255,255,255,.025)
                 );
 
-            transition: .3s ease;
+            transition:
+                .3s ease;
+
         }
 
 
         .citizen-card:hover {
 
-            transform: translateY(-6px);
+            transform:
+                translateY(-6px);
 
             border-color:
                 rgba(180,205,230,.22);
+
         }
 
 
         .citizen-icon {
 
             width: 50px;
+
             height: 50px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 13px;
@@ -222,6 +323,7 @@
             margin-bottom: 18px;
 
             font-size: 22px;
+
         }
 
 
@@ -230,6 +332,7 @@
             font-size: 19px;
 
             margin-bottom: 10px;
+
         }
 
 
@@ -240,6 +343,7 @@
             font-size: 13px;
 
             line-height: 1.7;
+
         }
 
 
@@ -255,6 +359,7 @@
                 repeat(2, 1fr);
 
             gap: 20px;
+
         }
 
 
@@ -269,6 +374,7 @@
 
             background:
                 rgba(255,255,255,.035);
+
         }
 
 
@@ -282,6 +388,7 @@
             font-size: 27px;
 
             margin-bottom: 20px;
+
         }
 
 
@@ -294,6 +401,7 @@
             flex-direction: column;
 
             gap: 11px;
+
         }
 
 
@@ -311,6 +419,7 @@
             font-size: 13px;
 
             line-height: 1.5;
+
         }
 
 
@@ -319,6 +428,7 @@
             margin-right: 10px;
 
             font-weight: bold;
+
         }
 
 
@@ -327,6 +437,7 @@
             content: "✓";
 
             color: #b9c9d6;
+
         }
 
 
@@ -335,6 +446,7 @@
             content: "•";
 
             color: #8c9dad;
+
         }
 
 
@@ -351,7 +463,6 @@
 
             gap: 15px;
 
-            counter-reset: steps;
         }
 
 
@@ -368,17 +479,20 @@
                 rgba(255,255,255,.035);
 
             position: relative;
+
         }
 
 
         .step-number {
 
             width: 34px;
+
             height: 34px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 50%;
@@ -391,6 +505,7 @@
             font-weight: bold;
 
             margin-bottom: 15px;
+
         }
 
 
@@ -399,6 +514,7 @@
             font-size: 16px;
 
             margin-bottom: 8px;
+
         }
 
 
@@ -409,6 +525,7 @@
             font-size: 12px;
 
             line-height: 1.6;
+
         }
 
 
@@ -424,6 +541,7 @@
                 repeat(4, 1fr);
 
             gap: 15px;
+
         }
 
 
@@ -440,6 +558,7 @@
                 1px solid rgba(255,255,255,.07);
 
             text-align: center;
+
         }
 
 
@@ -452,6 +571,7 @@
             color: #dce4eb;
 
             margin-bottom: 6px;
+
         }
 
 
@@ -464,6 +584,7 @@
             text-transform: uppercase;
 
             letter-spacing: 1px;
+
         }
 
 
@@ -476,6 +597,7 @@
             .citizen-hero {
 
                 grid-template-columns: 1fr;
+
             }
 
 
@@ -483,6 +605,7 @@
 
                 grid-template-columns:
                     repeat(2, 1fr);
+
             }
 
 
@@ -490,6 +613,7 @@
 
                 grid-template-columns:
                     repeat(2, 1fr);
+
             }
 
 
@@ -497,6 +621,7 @@
 
                 grid-template-columns:
                     repeat(2, 1fr);
+
             }
 
         }
@@ -507,6 +632,7 @@
             .citizen-main {
 
                 padding: 27px;
+
             }
 
 
@@ -516,6 +642,23 @@
             .status-grid {
 
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .citizen-main h2 {
+
+                font-size: 32px;
+
+            }
+
+
+            .citizen-passport-button {
+
+                width: 100%;
+
+                box-sizing: border-box;
+
             }
 
         }
@@ -635,28 +778,34 @@
 
 <section class="section">
 
-
     <div class="citizen-hero">
 
 
         <div class="citizen-main">
 
-    <h2>
-        Гражданство Элендорфа
-    </h2>
+            <h2>
+                Гражданство Элендорфа
+            </h2>
 
-    <p>
-        Гражданин Элендорфа — участник
-        виртуального государства, обладающий
-        установленными государством правами
-        и обязанностями.
-    </p>
+            <p>
+                Гражданин Элендорфа — участник
+                виртуального государства, обладающий
+                установленными государством правами
+                и обязанностями.
+            </p>
 
-    <a href="getcitizens.html" class="citizen-passport-button">
-        🪪 Получить виртуальный паспорт
-    </a>
 
-</div>
+            <!-- PASSPORT BUTTON -->
+
+            <a
+                href="getcitizens.html"
+                class="citizen-passport-button">
+
+                🪪 Получить виртуальный паспорт
+
+            </a>
+
+        </div>
 
 
         <div class="citizen-number">
@@ -674,11 +823,12 @@
     </div>
 
 
-<!-- =========================================
-     STATUS
-========================================= -->
+    <!-- =========================================
+         STATUS
+    ========================================= -->
 
     <div class="status-grid">
+
 
         <div class="status-card">
 
