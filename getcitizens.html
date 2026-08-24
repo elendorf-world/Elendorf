@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Получение виртуального паспорта — Королевство Элендорф</title>
+
+    <meta name="description"
+          content="Оформление виртуального паспорта гражданина Королевства Элендорф.">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           PASSPORT PAGE
+        ========================================= */
+
+        .passport-page {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .passport-form {
+
+            padding: 32px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.025)
+                );
+
+        }
+
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+
+        .form-group.full {
+
+            grid-column:
+                1 / -1;
+
+        }
+
+
+        .form-label {
+
+            color: #cbd5df;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        .form-hint {
+
+            color: #71869a;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .passport-input {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 13px 15px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                rgba(0,0,0,.16);
+
+            color: #e4ebf1;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: .25s ease;
+
+        }
+
+
+        .passport-input:focus {
+
+            border-color:
+                rgba(180,210,235,.35);
+
+            background:
+                rgba(0,0,0,.22);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(120,160,195,.08);
+
+        }
+
+
+        .passport-input::placeholder {
+
+            color: #617589;
+
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .passport-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 13px 20px;
+
+            margin-top: 22px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid rgba(180,210,235,.18);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #315d82,
+                    #244663
+                );
+
+            color: #edf3f7;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition: .25s ease;
+
+        }
+
+
+        .passport-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(200,225,245,.35);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,.22);
+
+        }
+
+
+        .passport-button:active {
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        .passport-button.secondary {
+
+            background:
+                rgba(255,255,255,.055);
+
+            border:
+                1px solid rgba(255,255,255,.10);
+
+            color: #b9c7d3;
+
+        }
+
+
+        .passport-button.danger {
+
+            background:
+                rgba(150,55,55,.18);
+
+            border:
+                1px solid rgba(210,100,100,.20);
+
+            color: #e5baba;
+
+        }
+
+
+        /* =========================================
+           ALERTS
+        ========================================= */
+
+        .passport-alert {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 17px 19px;
+
+            border-radius: 12px;
+
+            line-height: 1.6;
+
+            font-size: 13px;
+
+        }
+
+
+        .passport-alert.error {
+
+            background:
+                rgba(190,70,70,.13);
+
+            border:
+                1px solid rgba(220,110,110,.22);
+
+            color: #e8bcbc;
+
+        }
+
+
+        .passport-alert.success {
+
+            background:
+                rgba(75,145,105,.12);
+
+            border:
+                1px solid rgba(100,185,130,.20);
+
+            color: #b9ddc5;
+
+        }
+
+
+        .passport-alert.warning {
+
+            background:
+                rgba(180,140,55,.11);
+
+            border:
+                1px solid rgba(205,165,75,.20);
+
+            color: #dfcf9f;
+
+        }
+
+
+        /* =========================================
+           PASSPORT
+        ========================================= */
+
+        .passport-result {
+
+            display: none;
+
+            margin-top: 30px;
+
+        }
+
+
+        .passport-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(190,215,235,.16);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #203b53,
+                    #162b3d
+                );
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.25);
+
+        }
+
+
+        .passport-card::after {
+
+            content: "Э";
+
+            position: absolute;
+
+            right: 25px;
+
+            top: -55px;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 260px;
+
+            color:
+                rgba(255,255,255,.025);
+
+            pointer-events: none;
+
+        }
+
+
+        .passport-top {
+
+            position: relative;
+
+            z-index: 1;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 20px;
+
+            padding-bottom: 25px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+        }
+
+
+        .passport-country {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 27px;
+
+            color: #e5ebf0;
+
+        }
+
+
+        .passport-type {
+
+            margin-top: 5px;
+
+            color: #8298aa;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .passport-emblem {
+
+            width: 58px;
+
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255,255,255,.13);
+
+            background:
+                rgba(255,255,255,.045);
+
+            font-size: 25px;
+
+        }
+
+
+        .passport-body {
+
+            position: relative;
+
+            z-index: 1;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+
+            padding-top: 27px;
+
+        }
+
+
+        .passport-field {
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.035);
+
+        }
+
+
+        .passport-field.full {
+
+            grid-column:
+                1 / -1;
+
+        }
+
+
+        .passport-field-label {
+
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #71879a;
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.3px;
+
+        }
+
+
+        .passport-field-value {
+
+            color: #dce5ec;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            word-break: break-word;
+
+        }
+
+
+        .passport-id {
+
+            font-family:
+                monospace;
+
+            font-size: 17px;
+
+            letter-spacing: 1px;
+
+            color: #dce8f0;
+
+        }
+
+
+        .passport-footer {
+
+            position: relative;
+
+            z-index: 1;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid rgba(255,255,255,.07);
+
+            color: #71879a;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================
+           CHANGE REQUEST
+        ========================================= */
+
+        .change-section {
+
+            display: none;
+
+            margin-top: 25px;
+
+        }
+
+
+        .change-box {
+
+            padding: 28px;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.035);
+
+        }
+
+
+        .change-box h3 {
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .change-description {
+
+            color: #879bad;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .change-requirements {
+
+            margin-bottom: 22px;
+
+            padding: 15px 17px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #879bad;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .change-requirements strong {
+
+            color: #bac8d3;
+
+        }
+
+
+        .passport-textarea {
+
+            min-height: 140px;
+
+            resize: vertical;
+
+        }
+
+
+        .request-status {
+
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(75,145,105,.11);
+
+            border:
+                1px solid rgba(100,185,130,.18);
+
+            color: #b9ddc5;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================
+           LEGAL NOTICE
+        ========================================= */
+
+        .passport-legal {
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            color: #718598;
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .passport-legal strong {
+
+            color: #aebdca;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .form-grid,
+            .passport-body {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .form-group.full,
+            .passport-field.full {
+
+                grid-column:
+                    auto;
+
+            }
+
+
+            .passport-form,
+            .change-box {
+
+                padding: 22px;
+
+            }
+
+
+            .passport-card {
+
+                padding: 25px;
+
+            }
+
+
+            .passport-top {
+
+                align-items: flex-start;
+
+            }
+
+
+            .passport-country {
+
+                font-size: 22px;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .passport-top {
+
+                flex-direction: column;
+
+            }
+
+
+            .passport-emblem {
+
+                width: 48px;
+                height: 48px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="flag-line"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-symbol">
+                ★
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    ЭЛЕНДОРФ
+                </div>
+
+                <div class="logo-subtitle">
+                    КОРОЛЕВСТВО · ОФИЦИАЛЬНЫЙ ПОРТАЛ
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="state.html">
+                Государство
+            </a>
+
+            <a href="government.html">
+                Власть
+            </a>
+
+            <a href="constitution.html">
+                Законодательство
+            </a>
+
+            <a href="news.html">
+                Новости
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="page-hero-inner">
+
+        <div class="hero-small">
+            Гражданство Элендорфа
+        </div>
+
+        <h1>
+            Получение виртуального паспорта
+        </h1>
+
+        <p>
+            Оформление внутреннего цифрового
+            идентификатора гражданина Королевства
+            Элендорф.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BREADCRUMBS
+========================================= -->
+
+<div class="breadcrumbs">
+
+    <a href="index.html">
+        Главная
+    </a>
+
+    <span>›</span>
+
+    <a href="citizens.html">
+        Граждане
+    </a>
+
+    <span>›</span>
+
+    Получение паспорта
+
+</div>
+
+
+<main class="section passport-page">
+
+
+<!-- =========================================
+     INFORMATION
+========================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Регистрация гражданина
+        </div>
+
+        <h2>
+            Оформление виртуального паспорта
+        </h2>
+
+        <p class="section-description">
+            Заполните данные ниже для создания
+            виртуального паспорта. После регистрации
+            каждому паспорту автоматически присваивается
+            уникальный идентификационный номер.
+        </p>
+
+    </div>
+
+
+    <div class="passport-form">
+
+
+        <div class="form-grid">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="citizenName">
+
+                    Имя
+
+                </label>
+
+                <input
+                    class="passport-input"
+                    id="citizenName"
+                    type="text"
+                    maxlength="40"
+                    placeholder="Введите ваше имя"
+                    autocomplete="off"
+                >
+
+                <div class="form-hint">
+
+                    Укажите имя, которое будет отображаться
+                    в виртуальном паспорте.
+
+                </div>
+
+            </div>
+
+
+            <!-- AGE -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="citizenAge">
+
+                    Возраст
+
+                </label>
+
+                <input
+                    class="passport-input"
+                    id="citizenAge"
+                    type="number"
+                    min="1"
+                    max="120"
+                    placeholder="Введите возраст"
+                    autocomplete="off"
+                >
+
+                <div class="form-hint">
+
+                    Возраст используется только для
+                    внутренней регистрации проекта.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="passport-button"
+            type="button"
+            id="createPassport">
+
+            🪪 Создать виртуальный паспорт
+
+        </button>
+
+
+        <!-- ERROR -->
+
+        <div
+            class="passport-alert error"
+            id="passportError">
+
+            <strong>
+                Паспорт уже существует
+            </strong>
+
+            <br>
+
+            Вы не можете создать новый виртуальный
+            паспорт, поскольку в этом браузере уже
+            зарегистрирован паспорт гражданина Элендорфа.
+
+            <br><br>
+
+            Если ваши паспортные данные действительно
+            требуют изменения, используйте специальную
+            процедуру подачи заявки ниже.
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            class="passport-alert success"
+            id="passportSuccess">
+
+            <strong>
+                Паспорт успешно создан
+            </strong>
+
+            <br>
+
+            Ваш виртуальный паспорт зарегистрирован.
+            Ему присвоен уникальный идентификационный номер.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PASSPORT RESULT
+========================================= -->
+
+<section
+    class="passport-result"
+    id="passportResult">
+
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            Документ гражданина
+        </div>
+
+        <h2>
+            Ваш виртуальный паспорт
+        </h2>
+
+    </div>
+
+
+    <div class="passport-card">
+
+
+        <div class="passport-top">
+
+            <div>
+
+                <div class="passport-country">
+                    КОРОЛЕВСТВО ЭЛЕНДОРФ
+                </div>
+
+                <div class="passport-type">
+                    ВИРТУАЛЬНЫЙ ПАСПОРТ ГРАЖДАНИНА
+                </div>
+
+            </div>
+
+
+            <div class="passport-emblem">
+                ★
+            </div>
+
+        </div>
+
+
+        <div class="passport-body">
+
+
+            <div class="passport-field full">
+
+                <span class="passport-field-label">
+                    Имя гражданина
+                </span>
+
+                <div
+                    class="passport-field-value"
+                    id="passportName">
+
+                </div>
+
+            </div>
+
+
+            <div class="passport-field">
+
+                <span class="passport-field-label">
+                    Возраст
+                </span>
+
+                <div
+                    class="passport-field-value"
+                    id="passportAge">
+
+                </div>
+
+            </div>
+
+
+            <div class="passport-field">
+
+                <span class="passport-field-label">
+                    Статус
+                </span>
+
+                <div class="passport-field-value">
+                    Гражданин Элендорфа
+                </div>
+
+            </div>
+
+
+            <div class="passport-field full">
+
+                <span class="passport-field-label">
+                    Уникальный идентификационный номер
+                </span>
+
+                <div
+                    class="passport-field-value passport-id"
+                    id="passportId">
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="passport-footer">
+
+            Документ предназначен исключительно
+            для внутренней идентификации участника
+            виртуального государства и Minecraft-проекта.
+
+        </div>
+
+    </div>
+
+
+    <!-- CHANGE BUTTON -->
+
+    <button
+        class="passport-button secondary"
+        type="button"
+        id="showChangeRequest">
+
+        ✎ Подать заявку на изменение паспортных данных
+
+    </button>
+
+
+</section>
+
+
+<!-- =========================================
+     CHANGE REQUEST
+========================================= -->
+
+<section
+    class="change-section"
+    id="changeSection">
+
+
+    <div class="change-box">
+
+
+        <h3>
+            Заявка на изменение паспортных данных
+        </h3>
+
+
+        <p class="change-description">
+
+            Изменение уже зарегистрированных паспортных
+            данных не производится автоматически.
+            Заявка рассматривается администрацией проекта
+            отдельно.
+
+        </p>
+
+
+        <div class="change-requirements">
+
+            <strong>
+                Требования к заявке
+            </strong>
+
+            <br><br>
+
+            Укажите конкретную и обоснованную причину
+            изменения данных. Простые формулировки вроде
+            «хочу поменять», «ошибка» или «не нравится»
+            не являются достаточным основанием.
+
+            <br><br>
+
+            В заявке рекомендуется указать:
+
+            <br>
+
+            • какие данные необходимо изменить;
+
+            <br>
+
+            • какие данные должны быть установлены;
+
+            <br>
+
+            • почему первоначальные данные были указаны
+            неправильно или требуют изменения;
+
+            <br>
+
+            • дополнительные обстоятельства, подтверждающие
+            необходимость изменения.
+
+        </div>
+
+
+        <div class="form-group">
+
+
+            <label
+                class="form-label"
+                for="changeReason">
+
+                Причина изменения
+
+            </label>
+
+
+            <textarea
+                class="passport-input passport-textarea"
+                id="changeReason"
+                maxlength="1000"
+                placeholder="Подробно опишите причину изменения паспортных данных..."
+            ></textarea>
+
+
+            <div class="form-hint">
+
+                Минимум 80 символов. Чем подробнее
+                обоснована заявка, тем проще администрации
+                оценить её необходимость.
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="passport-button"
+            type="button"
+            id="submitChangeRequest">
+
+            Отправить заявку
+
+        </button>
+
+
+        <div
+            class="request-status"
+            id="requestStatus">
+
+            Заявка сформирована и сохранена
+            в текущем браузере. Администрация проекта
+            может рассмотреть её отдельно.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     LEGAL NOTICE
+========================================= -->
+
+<section>
+
+
+    <div class="passport-legal">
+
+        <strong>
+            ⚖️ Правовой статус виртуального паспорта
+        </strong>
+
+        <br><br>
+
+        Виртуальный паспорт Элендорфа является
+        исключительно внутренним цифровым идентификатором
+        участника виртуального государства и Minecraft-проекта.
+
+        <br><br>
+
+        Он не является официальным документом,
+        документом, удостоверяющим личность,
+        государственным удостоверением или иным
+        юридически значимым документом в соответствии
+        с законодательством какого-либо государства.
+
+        <br><br>
+
+        Виртуальный паспорт не предоставляет
+        юридических прав или обязанностей за пределами
+        проекта и не может использоваться для подтверждения
+        личности, гражданства, возраста либо иного
+        юридически значимого статуса.
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <strong>
+        КОРОЛЕВСТВО ЭЛЕНДОРФ
+    </strong>
+
+    <br>
+
+    Официальный государственный
+    информационный портал
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            О сайте
+        </a>
+
+        <a href="copyright.html">
+            Авторские права
+        </a>
+
+        <a href="state.html">
+            О государстве
+        </a>
+
+        <a href="government.html">
+            Государственная власть
+        </a>
+
+        <a href="news.html">
+            Новости
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 Королевство Элендорф
+
+    <br>
+
+    Виртуальное государство · Minecraft-проект
+
+</footer>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+/* =========================================
+   STORAGE KEY
+========================================= */
+
+const PASSPORT_STORAGE_KEY =
+    "elendorf_virtual_passport";
+
+
+const CHANGE_STORAGE_KEY =
+    "elendorf_passport_change_request";
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const nameInput =
+    document.getElementById("citizenName");
+
+const ageInput =
+    document.getElementById("citizenAge");
+
+const createButton =
+    document.getElementById("createPassport");
+
+const passportError =
+    document.getElementById("passportError");
+
+const passportSuccess =
+    document.getElementById("passportSuccess");
+
+const passportResult =
+    document.getElementById("passportResult");
+
+const passportName =
+    document.getElementById("passportName");
+
+const passportAge =
+    document.getElementById("passportAge");
+
+const passportId =
+    document.getElementById("passportId");
+
+const showChangeRequest =
+    document.getElementById("showChangeRequest");
+
+const changeSection =
+    document.getElementById("changeSection");
+
+const changeReason =
+    document.getElementById("changeReason");
+
+const submitChangeRequest =
+    document.getElementById("submitChangeRequest");
+
+const requestStatus =
+    document.getElementById("requestStatus");
+
+
+/* =========================================
+   GENERATE UNIQUE ID
+========================================= */
+
+function generatePassportId() {
+
+    const year =
+        new Date().getFullYear();
+
+    const timestamp =
+        Date.now().toString(36).toUpperCase();
+
+    const randomPart =
+        Math.random()
+            .toString(36)
+            .substring(2, 8)
+            .toUpperCase();
+
+    return "EL-" +
+        year +
+        "-" +
+        timestamp +
+        "-" +
+        randomPart;
+
+}
+
+
+/* =========================================
+   LOAD EXISTING PASSPORT
+========================================= */
+
+function loadPassport() {
+
+    const savedPassport =
+        localStorage.getItem(
+            PASSPORT_STORAGE_KEY
+        );
+
+
+    if (!savedPassport) {
+
+        return null;
+
+    }
+
+
+    try {
+
+        return JSON.parse(savedPassport);
+
+    } catch (error) {
+
+        localStorage.removeItem(
+            PASSPORT_STORAGE_KEY
+        );
+
+        return null;
+
+    }
+
+}
+
+
+/* =========================================
+   DISPLAY PASSPORT
+========================================= */
+
+function displayPassport(passport) {
+
+    passportName.textContent =
+        passport.name;
+
+    passportAge.textContent =
+        passport.age + " лет";
+
+    passportId.textContent =
+        passport.id;
+
+    passportResult.style.display =
+        "block";
+
+}
+
+
+/* =========================================
+   CREATE PASSPORT
+========================================= */
+
+createButton.addEventListener(
+    "click",
+    function () {
+
+
+        passportError.style.display =
+            "none";
+
+        passportSuccess.style.display =
+            "none";
+
+
+        /* CHECK EXISTING PASSPORT */
+
+        const existingPassport =
+            loadPassport();
+
+
+        if (existingPassport) {
+
+            passportError.style.display =
+                "block";
+
+            displayPassport(
+                existingPassport
+            );
+
+            passportResult.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            return;
+
+        }
+
+
+        /* GET DATA */
+
+        const name =
+            nameInput.value.trim();
+
+        const age =
+            Number(ageInput.value);
+
+
+        /* VALIDATION */
+
+        if (name.length < 2) {
+
+            passportError.innerHTML = `
+                <strong>
+                    Некорректное имя
+                </strong>
+                <br>
+                Имя должно содержать минимум
+                2 символа.
+            `;
+
+            passportError.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        if (age < 1 || age > 120) {
+
+            passportError.innerHTML = `
+                <strong>
+                    Некорректный возраст
+                </strong>
+                <br>
+                Укажите возраст от 1 до 120 лет.
+            `;
+
+            passportError.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        /* CREATE UNIQUE PASSPORT */
+
+        const newPassport = {
+
+            name:
+                name,
+
+            age:
+                age,
+
+            id:
+                generatePassportId(),
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        /* SAVE */
+
+        localStorage.setItem(
+            PASSPORT_STORAGE_KEY,
+            JSON.stringify(newPassport)
+        );
+
+
+        /* DISPLAY */
+
+        displayPassport(
+            newPassport
+        );
+
+
+        passportSuccess.style.display =
+            "block";
+
+
+        passportResult.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+);
+
+
+/* =========================================
+   SHOW CHANGE REQUEST
+========================================= */
+
+showChangeRequest.addEventListener(
+    "click",
+    function () {
+
+        changeSection.style.display =
+            "block";
+
+        changeSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+);
+
+
+/* =========================================
+   SUBMIT CHANGE REQUEST
+========================================= */
+
+submitChangeRequest.addEventListener(
+    "click",
+    function () {
+
+
+        requestStatus.style.display =
+            "none";
+
+
+        const passport =
+            loadPassport();
+
+
+        if (!passport) {
+
+            alert(
+                "Для подачи заявки необходимо иметь зарегистрированный виртуальный паспорт."
+            );
+
+            return;
+
+        }
+
+
+        const reason =
+            changeReason.value.trim();
+
+
+        /* MINIMUM REASON LENGTH */
+
+        if (reason.length < 80) {
+
+            changeReason.focus();
+
+            changeReason.style.borderColor =
+                "rgba(220,110,110,.45)";
+
+            return;
+
+        }
+
+
+        changeReason.style.borderColor =
+            "";
+
+
+        /* SAVE REQUEST */
+
+        const request = {
+
+            passportId:
+                passport.id,
+
+            reason:
+                reason,
+
+            createdAt:
+                new Date().toISOString(),
+
+            status:
+                "На рассмотрении"
+
+        };
+
+
+        localStorage.setItem(
+            CHANGE_STORAGE_KEY,
+            JSON.stringify(request)
+        );
+
+
+        requestStatus.style.display =
+            "block";
+
+
+        requestStatus.innerHTML = `
+            <strong>
+                ✓ Заявка сформирована
+            </strong>
+            <br><br>
+            Заявка на изменение данных для паспорта
+            <strong>${passport.id}</strong>
+            сохранена.
+            <br><br>
+            Решение по заявке принимается администрацией
+            проекта отдельно.
+        `;
+
+
+        changeReason.value = "";
+
+
+    }
+);
+
+
+/* =========================================
+   INITIAL PAGE LOAD
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const existingPassport =
+            loadPassport();
+
+
+        if (existingPassport) {
+
+            displayPassport(
+                existingPassport
+            );
+
+        }
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
