@@ -2,29 +2,204 @@
 <html lang="ru">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-Верификация администрации — Королевство Элендорф
-</title>
+<title>Верификация администрации — Элендорф</title>
 
 <meta name="description"
 content="Официальная страница верификации администрации Королевства Элендорф.">
 
-<link rel="stylesheet" href="style.css">
-
 <style>
 
 /* =====================================================
-   ОСНОВНАЯ СТРАНИЦА
+   ОСНОВА
 ===================================================== */
 
-.verify-page {
-    padding: 75px 20px 90px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #f5f6f8;
+    color: #20242a;
+
+    min-height: 100vh;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ВЕРХНЯЯ ПОЛОСА
+===================================================== */
+
+.top-line {
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1f7a3a,
+            #49a866,
+            #1f7a3a
+        );
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(255,255,255,.96);
+
+    border-bottom: 1px solid #dedfe2;
+
+    backdrop-filter: blur(12px);
+}
+
+.header-inner {
+    width: min(1180px, 94%);
+
+    min-height: 76px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ЛОГО */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: #1d2024;
+}
+
+.logo-symbol {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #20252b;
+
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.logo-title {
+    font-size: 17px;
+
+    font-weight: 900;
+
+    letter-spacing: .3px;
+}
+
+.logo-subtitle {
+    margin-top: 1px;
+
+    color: #777d84;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+}
+
+
+/* НАВИГАЦИЯ */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+nav a {
+    color: #444a51;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    padding: 9px 11px;
+
+    border-radius: 7px;
+
+    transition: .2s;
+}
+
+nav a:hover {
+    color: #171a1d;
+
+    background: #f0f1f3;
+}
+
+nav a.active {
+    color: #1f7a3a;
+
+    background: #eef8f1;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+    width: min(1050px, 92%);
+
+    margin: auto;
+
+    padding: 65px 0 85px;
 }
 
 
@@ -32,201 +207,207 @@ content="Официальная страница верификации адми
    HERO
 ===================================================== */
 
-.verify-hero {
-    max-width: 850px;
-
-    margin: 0 auto 55px;
-
+.hero {
     text-align: center;
+
+    max-width: 820px;
+
+    margin: 0 auto 48px;
 }
 
-.verify-hero-icon {
+.hero-icon {
     width: 76px;
     height: 76px;
 
     margin: 0 auto 22px;
 
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #dcdfe3;
+
+    box-shadow:
+        0 10px 30px rgba(20,30,40,.08);
+
     display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.check {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    background: #2488e8;
+
+    color: white;
+
+    display: flex;
+
     align-items: center;
     justify-content: center;
 
-    border-radius: 20px;
+    font-size: 25px;
 
-    background: #f5f5f2;
+    font-weight: 1000;
 
-    border: 1px solid #deded9;
+    line-height: 1;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.06);
+        0 5px 15px rgba(36,136,232,.25);
 }
 
-.verify-hero-icon img {
-    width: 48px;
-    height: 48px;
+.hero-kicker {
+    color: #70767d;
 
-    object-fit: contain;
+    font-size: 12px;
 
-    border-radius: 50%;
-}
-
-.verify-kicker {
-    color: #777;
-
-    font-size: 13px;
-
-    font-weight: 800;
+    font-weight: 900;
 
     text-transform: uppercase;
 
-    letter-spacing: 1.2px;
+    letter-spacing: 1.3px;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
-.verify-hero h1 {
-    color: #202020;
+.hero h1 {
+    color: #171a1d;
 
     font-size: clamp(32px, 5vw, 48px);
 
     line-height: 1.1;
 
-    letter-spacing: -.8px;
+    letter-spacing: -.9px;
 
-    margin-bottom: 17px;
+    margin-bottom: 16px;
 }
 
-.verify-hero-description {
+.hero-description {
+    color: #5e646b;
+
     max-width: 720px;
 
-    margin: 0 auto;
-
-    color: #666;
+    margin: auto;
 
     font-size: 16px;
 
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 
 /* =====================================================
-   ИНФОРМАЦИОННАЯ КАРТОЧКА
+   INFO
 ===================================================== */
 
-.verify-info {
-    max-width: 900px;
+.info {
+    background: #ffffff;
 
-    margin: 0 auto 55px;
+    border: 1px solid #dedfe2;
+
+    border-radius: 16px;
 
     padding: 28px 30px;
 
-    background: #f8f8f6;
-
-    border: 1px solid #deded9;
-
-    border-radius: 15px;
+    margin-bottom: 50px;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.04);
+        0 8px 25px rgba(20,30,40,.045);
 }
 
-.verify-info h2 {
-    color: #222;
+.info h2 {
+    color: #20242a;
 
     font-size: 21px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
-.verify-info p {
-    color: #5f5f5f;
+.info p {
+    color: #5f656c;
 
     font-size: 15px;
 
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 
 /* =====================================================
-   ЗАГОЛОВКИ РАЗДЕЛОВ
+   SECTION TITLE
 ===================================================== */
 
-.verify-section-title {
-    max-width: 1000px;
-
-    margin: 55px auto 25px;
-
+.section-title {
     text-align: center;
+
+    margin: 55px 0 25px;
 }
 
-.verify-section-title .kicker {
-    color: #777;
+.section-kicker {
+    color: #6f757c;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    font-weight: 800;
+    font-weight: 900;
 
     text-transform: uppercase;
 
     letter-spacing: 1px;
 
-    margin-bottom: 8px;
-}
-
-.verify-section-title h2 {
-    color: #222;
-
-    font-size: 30px;
-
     margin-bottom: 7px;
 }
 
-.verify-section-title p {
-    color: #707070;
+.section-title h2 {
+    color: #1d2024;
 
-    font-size: 15px;
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    margin-bottom: 6px;
+}
+
+.section-title p {
+    color: #71777e;
+
+    font-size: 14px;
 }
 
 
 /* =====================================================
-   АДМИНИСТРАЦИЯ
+   АДМИНИСТРАТОРЫ
 ===================================================== */
 
 .admins {
-    max-width: 1000px;
-
-    margin: 0 auto;
-
     display: grid;
 
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 24px;
+    gap: 22px;
 }
-
-
-/* =====================================================
-   КАРТОЧКА АДМИНИСТРАТОРА
-===================================================== */
 
 .admin-card {
     position: relative;
 
-    padding: 30px;
-
     background: #ffffff;
 
-    border: 1px solid #ddddda;
+    border: 1px solid #dfe1e4;
 
-    border-radius: 16px;
+    border-radius: 17px;
+
+    padding: 28px;
 
     box-shadow:
-        0 9px 28px rgba(0,0,0,.06);
+        0 10px 30px rgba(20,30,40,.055);
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        border-color .2s ease;
+        transform .2s,
+        box-shadow .2s,
+        border-color .2s;
 
     overflow: hidden;
 }
@@ -242,29 +423,21 @@ content="Официальная страница верификации адми
 
     height: 3px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #238636,
-            #6bcf7b,
-            #238636
-        );
-
-    opacity: .8;
+    background: #299447;
 }
 
 .admin-card:hover {
     transform: translateY(-4px);
 
-    border-color: #cfcfca;
+    border-color: #cfd2d6;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.09);
+        0 17px 38px rgba(20,30,40,.09);
 }
 
 
 /* =====================================================
-   ВЕРХ КАРТОЧКИ
+   ADMIN TOP
 ===================================================== */
 
 .admin-top {
@@ -272,50 +445,37 @@ content="Официальная страница верификации адми
 
     align-items: center;
 
-    gap: 16px;
+    gap: 15px;
 
     margin-bottom: 20px;
 }
 
-
-/* =====================================================
-   АВАТАР
-===================================================== */
-
-.admin-avatar {
-    width: 62px;
-    height: 62px;
+.avatar {
+    width: 60px;
+    height: 60px;
 
     flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
 
     border-radius: 50%;
 
     background:
         linear-gradient(
             145deg,
-            #252525,
-            #444
+            #252b31,
+            #4a5158
         );
 
     color: #ffffff;
 
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     font-size: 23px;
 
     font-weight: 900;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.12);
 }
-
-
-/* =====================================================
-   ИМЯ
-===================================================== */
 
 .admin-name {
     display: flex;
@@ -324,66 +484,66 @@ content="Официальная страница верификации адми
 
     gap: 8px;
 
-    color: #202020;
+    color: #1b1f23;
 
-    font-size: 22px;
+    font-size: 21px;
 
     font-weight: 850;
 
     line-height: 1.2;
+
+    flex-wrap: wrap;
 }
 
 
 /* =====================================================
-   НАСТОЯЩАЯ ГАЛОЧКА
+   ГАЛОЧКА
 ===================================================== */
 
 .verify-button {
-    width: 24px;
-    height: 24px;
+    width: 23px;
+    height: 23px;
+
+    border: 0;
 
     padding: 0;
 
-    border: none;
+    border-radius: 50%;
 
-    background: transparent;
+    background: #2488e8;
+
+    color: #ffffff;
 
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
+    font-size: 14px;
+
+    font-weight: 1000;
+
+    line-height: 1;
+
     cursor: pointer;
 
-    flex-shrink: 0;
+    box-shadow:
+        0 2px 6px rgba(36,136,232,.25);
 
     transition:
-        transform .18s ease,
-        filter .18s ease;
-}
-
-.verify-button img {
-    width: 24px;
-    height: 24px;
-
-    display: block;
-
-    object-fit: contain;
-
-    border-radius: 50%;
+        transform .18s,
+        box-shadow .18s;
 }
 
 .verify-button:hover {
     transform: scale(1.13);
 
-    filter:
-        drop-shadow(
-            0 3px 5px rgba(0,0,0,.18)
-        );
+    box-shadow:
+        0 0 0 4px rgba(36,136,232,.12);
 }
 
 .verify-button:active {
-    transform: scale(.93);
+    transform: scale(.94);
 }
 
 
@@ -395,83 +555,75 @@ content="Официальная страница верификации адми
     display: inline-flex;
 
     align-items: center;
-    justify-content: center;
-
-    width: max-content;
 
     min-height: 25px;
 
-    padding: 5px 13px;
+    padding: 4px 13px;
 
     margin-top: 8px;
 
     border-radius: 999px;
 
-    border: 1px solid #8dcc96;
+    background: #edf8f0;
 
-    background: #eff9f1;
+    border: 1px solid #8dca9a;
 
-    color: #218838;
+    color: #21833b;
 
     font-size: 10px;
 
-    font-weight: 900;
+    font-weight: 950;
 
     letter-spacing: .35px;
 
     white-space: nowrap;
 }
 
-
-/* =====================================================
-   TELEGRAM USERNAME
-===================================================== */
-
 .username {
-    margin-top: 6px;
+    margin-top: 5px;
 
-    color: #777;
+    color: #777d84;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
 /* =====================================================
-   ОПИСАНИЕ
+   DESCRIPTION
 ===================================================== */
 
 .description {
-    color: #5e5e5e;
+    color: #5e646b;
 
     font-size: 14px;
 
     line-height: 1.7;
 
-    margin: 20px 0 22px;
+    margin-bottom: 21px;
 }
 
 
 /* =====================================================
-   КНОПКИ
+   BUTTONS
 ===================================================== */
 
 .actions {
     display: flex;
 
-    gap: 10px;
+    gap: 9px;
 
     flex-wrap: wrap;
 }
 
 .button {
+    min-height: 40px;
+
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 41px;
-
-    padding: 9px 15px;
+    padding: 9px 14px;
 
     border-radius: 8px;
 
@@ -479,68 +631,53 @@ content="Официальная страница верификации адми
 
     font-size: 13px;
 
-    font-weight: 750;
+    font-weight: 800;
 
     cursor: pointer;
 
-    transition:
-        transform .18s ease,
-        background .18s ease,
-        border-color .18s ease;
+    transition: .18s;
 }
-
-.button:hover {
-    transform: translateY(-1px);
-}
-
-
-/* TELEGRAM */
 
 .telegram {
-    background: #222;
+    background: #20252b;
+
+    border: 1px solid #20252b;
 
     color: #ffffff;
-
-    border: 1px solid #222;
 }
 
 .telegram:hover {
-    background: #000;
+    background: #000000;
+
+    transform: translateY(-1px);
 }
-
-
-/* ДЕТАЛИ */
 
 .details {
     background: #ffffff;
 
-    color: #333333;
+    border: 1px solid #d3d6da;
 
-    border: 1px solid #d4d4d0;
+    color: #34393e;
 }
 
 .details:hover {
-    background: #f5f5f2;
+    background: #f3f4f5;
 
-    border-color: #bdbdb8;
+    transform: translateY(-1px);
 }
 
 
 /* =====================================================
-   КАК ПРОВЕРИТЬ
+   БЕЗОПАСНОСТЬ
 ===================================================== */
 
-.verify-list {
-    max-width: 1000px;
-
-    margin: 0 auto;
-
+.security-list {
     display: grid;
 
     gap: 12px;
 }
 
-.verify-list-item {
+.security-item {
     display: flex;
 
     gap: 14px;
@@ -549,50 +686,50 @@ content="Официальная страница верификации адми
 
     background: #ffffff;
 
-    border: 1px solid #deded9;
+    border: 1px solid #dfe1e4;
 
     border-radius: 12px;
 
     box-shadow:
-        0 5px 16px rgba(0,0,0,.035);
+        0 5px 16px rgba(20,30,40,.035);
 }
 
-.verify-list-number {
-    width: 30px;
-    height: 30px;
+.number {
+    width: 31px;
+    height: 31px;
 
     flex-shrink: 0;
 
     border-radius: 50%;
+
+    background: #f0f2f4;
+
+    border: 1px solid #d7dade;
+
+    color: #30353a;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    background: #f0f0ed;
-
-    border: 1px solid #d7d7d2;
-
-    color: #333;
-
     font-size: 13px;
 
     font-weight: 900;
 }
 
-.verify-list-content strong {
+.security-item strong {
+    color: #24282c;
+
     display: block;
 
-    color: #242424;
+    margin-bottom: 3px;
 
     font-size: 15px;
-
-    margin-bottom: 3px;
 }
 
-.verify-list-content p {
-    color: #666;
+.security-item p {
+    color: #676d74;
 
     font-size: 14px;
 
@@ -601,25 +738,23 @@ content="Официальная страница верификации адми
 
 
 /* =====================================================
-   ПРЕДУПРЕЖДЕНИЕ
+   WARNING
 ===================================================== */
 
 .warning {
-    max-width: 1000px;
-
-    margin: 22px auto 0;
+    margin-top: 22px;
 
     padding: 20px 22px;
 
-    background: #fff8e7;
+    background: #fff8e6;
 
-    border: 1px solid #ead49a;
+    border: 1px solid #e8d39b;
 
     border-radius: 13px;
 }
 
 .warning h3 {
-    color: #795b00;
+    color: #765900;
 
     font-size: 16px;
 
@@ -627,7 +762,7 @@ content="Официальная страница верификации адми
 }
 
 .warning p {
-    color: #67592f;
+    color: #675b36;
 
     font-size: 14px;
 
@@ -636,101 +771,125 @@ content="Официальная страница верификации адми
 
 
 /* =====================================================
-   ПОДДЕРЖКА
+   SUPPORT
 ===================================================== */
 
-.support-card {
-    max-width: 1000px;
+.support {
+    margin-top: 55px;
 
-    margin: 55px auto 0;
-
-    padding: 28px 30px;
-
-    background: #f8f8f6;
-
-    border: 1px solid #deded9;
-
-    border-radius: 15px;
+    padding: 30px;
 
     text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #dedfe2;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(20,30,40,.045);
 }
 
-.support-card h2 {
-    color: #222;
+.support h2 {
+    color: #20242a;
 
-    font-size: 22px;
-
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 }
 
-.support-card p {
-    max-width: 680px;
+.support p {
+    color: #666c72;
+
+    max-width: 650px;
 
     margin: 0 auto 18px;
 
-    color: #666;
-
-    font-size: 15px;
-
-    line-height: 1.65;
+    font-size: 14px;
 }
 
 
 /* =====================================================
-   НАВИГАЦИЯ
+   NAVIGATION
 ===================================================== */
 
-.verify-navigation {
+.page-links {
     display: flex;
 
     justify-content: center;
 
-    gap: 12px;
-
-    margin-top: 35px;
+    gap: 10px;
 
     flex-wrap: wrap;
+
+    margin-top: 28px;
 }
 
-.verify-navigation a {
-    padding: 11px 18px;
+.page-links a {
+    padding: 10px 16px;
 
     border-radius: 8px;
 
-    border: 1px solid #d4d4d0;
+    border: 1px solid #d4d7da;
 
     background: #ffffff;
 
-    color: #333;
+    color: #34393e;
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    font-weight: 700;
-
-    transition: .2s;
+    font-weight: 750;
 }
 
-.verify-navigation a:hover {
-    background: #f5f5f2;
+.page-links a:hover {
+    background: #f0f1f2;
 }
 
-.verify-navigation .primary {
-    background: #222;
+.page-links .main-link {
+    background: #20252b;
 
-    color: #fff;
+    border-color: #20252b;
 
-    border-color: #222;
-}
-
-.verify-navigation .primary:hover {
-    background: #000;
+    color: #ffffff;
 }
 
 
 /* =====================================================
-   МОДАЛЬНОЕ ОКНО
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 32px 20px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-top: 1px solid #dedfe2;
+
+    color: #737980;
+
+    font-size: 13px;
+}
+
+footer strong {
+    color: #30353a;
+}
+
+footer a {
+    color: #596068;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #1f7a3a;
+}
+
+
+/* =====================================================
+   MODAL
 ===================================================== */
 
 .modal-overlay {
@@ -738,19 +897,18 @@ content="Официальная страница верификации адми
 
     inset: 0;
 
-    padding: 20px;
-
-    background:
-        rgba(0,0,0,.55);
+    z-index: 1000;
 
     display: none;
 
     align-items: center;
     justify-content: center;
 
-    z-index: 1000;
+    padding: 20px;
 
-    backdrop-filter: blur(5px);
+    background: rgba(15,18,22,.58);
+
+    backdrop-filter: blur(6px);
 }
 
 .modal-overlay.active {
@@ -760,21 +918,21 @@ content="Официальная страница верификации адми
 .modal {
     width: min(520px, 100%);
 
-    padding: 30px;
-
     background: #ffffff;
 
-    border: 1px solid #d8d8d3;
+    border: 1px solid #d9dbde;
 
-    border-radius: 16px;
+    border-radius: 17px;
+
+    padding: 29px;
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.25);
+        0 25px 70px rgba(0,0,0,.25);
 
-    animation: modalIn .2s ease;
+    animation: modalOpen .18s ease;
 }
 
-@keyframes modalIn {
+@keyframes modalOpen {
 
     from {
         opacity: 0;
@@ -791,35 +949,40 @@ content="Официальная страница верификации адми
             translateY(0)
             scale(1);
     }
-
 }
 
-.modal-icon {
+.modal-check {
     width: 52px;
     height: 52px;
 
-    margin-bottom: 17px;
-}
-
-.modal-icon img {
-    width: 52px;
-    height: 52px;
-
-    object-fit: contain;
+    margin-bottom: 16px;
 
     border-radius: 50%;
+
+    background: #2488e8;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    font-weight: 1000;
 }
 
 .modal h2 {
-    color: #222;
+    color: #20242a;
 
     font-size: 23px;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 }
 
 .modal p {
-    color: #5f5f5f;
+    color: #5e646b;
 
     font-size: 15px;
 
@@ -829,25 +992,25 @@ content="Официальная страница верификации адми
 }
 
 .modal-note {
-    padding: 15px;
+    padding: 16px;
 
-    background: #f5f5f2;
+    background: #f4f5f6;
 
-    border: 1px solid #deded9;
+    border: 1px solid #dfe1e4;
 
     border-radius: 10px;
 
-    color: #555;
+    color: #565d64;
 
     font-size: 13px;
 
     line-height: 1.65;
 
-    margin-bottom: 20px;
+    margin-bottom: 19px;
 }
 
 .modal-note strong {
-    color: #222;
+    color: #20242a;
 }
 
 .close-modal {
@@ -855,60 +1018,65 @@ content="Официальная страница верификации адми
 
     padding: 12px;
 
-    border: none;
+    border: 0;
 
     border-radius: 8px;
 
-    background: #222;
+    background: #20252b;
 
     color: #ffffff;
 
     font-size: 14px;
 
-    font-weight: 750;
+    font-weight: 800;
 
     cursor: pointer;
 }
 
 .close-modal:hover {
-    background: #000;
+    background: #000000;
 }
 
 
 /* =====================================================
-   МОБИЛЬНАЯ ВЕРСИЯ
+   MOBILE
 ===================================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
+
+    .header-inner {
+        min-height: 70px;
+    }
+
+    nav {
+        display: none;
+    }
 
     .admins {
         grid-template-columns: 1fr;
     }
 
-    .verify-page {
-        padding-top: 55px;
-    }
-
 }
+
 
 @media (max-width: 520px) {
 
-    .verify-hero h1 {
+    main {
+        padding-top: 45px;
+    }
+
+    .hero h1 {
         font-size: 31px;
     }
 
-    .verify-hero-description {
+    .hero-description {
         font-size: 14px;
     }
 
-    .verify-info,
-    .support-card,
+    .info,
+    .support,
     .admin-card {
         padding: 22px;
-    }
-
-    .admin-top {
-        align-items: flex-start;
     }
 
     .admin-name {
@@ -923,11 +1091,11 @@ content="Официальная страница верификации адми
         width: 100%;
     }
 
-    .verify-navigation {
+    .page-links {
         flex-direction: column;
     }
 
-    .verify-navigation a {
+    .page-links a {
         width: 100%;
 
         text-align: center;
@@ -936,20 +1104,22 @@ content="Официальная страница верификации адми
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
+<div class="top-line"></div>
+
+
 <!-- =====================================================
-     ШАПКА
+     HEADER
 ===================================================== -->
 
 <header>
 
-<div class="navbar">
+<div class="header-inner">
 
 
 <a href="index.html" class="logo">
@@ -975,6 +1145,10 @@ content="Официальная страница верификации адми
 
 <nav>
 
+<a href="index.html">
+Главная
+</a>
+
 <a href="state.html">
 Государство
 </a>
@@ -995,15 +1169,16 @@ content="Официальная страница верификации адми
 Новости
 </a>
 
-<a href="verify.html">
-✓ Верификация
+<a href="verify.html" class="active">
+Верификация
 </a>
 
 <a href="support.html">
-🛠 Поддержка
+Поддержка
 </a>
 
 </nav>
+
 
 </div>
 
@@ -1012,27 +1187,27 @@ content="Официальная страница верификации адми
 
 
 <!-- =====================================================
-     ОСНОВНОЕ СОДЕРЖИМОЕ
+     MAIN
 ===================================================== -->
 
-<main class="verify-page">
+<main>
 
 
 <!-- HERO -->
 
-<section class="verify-hero">
+<section class="hero">
 
-<div class="verify-hero-icon">
 
-<img
-src="images/verification.webp"
-alt="Знак верификации"
->
+<div class="hero-icon">
+
+<div class="check">
+✓
+</div>
 
 </div>
 
 
-<div class="verify-kicker">
+<div class="hero-kicker">
 Официальная информация
 </div>
 
@@ -1042,25 +1217,26 @@ alt="Знак верификации"
 </h1>
 
 
-<p class="verify-hero-description">
+<p class="hero-description">
 
 На этой странице опубликован текущий состав
 официальной администрации платформы Элендорф.
-Специальная отметка рядом с именем позволяет
-пользователям определить официальных
-представителей администрации.
+Синяя отметка рядом с именем подтверждает,
+что пользователь является официальным
+представителем администрации платформы.
 
 </p>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     ЧТО ОЗНАЧАЕТ ВЕРИФИКАЦИЯ
+     INFO
 ===================================================== -->
 
-<section class="verify-info">
+<section class="info">
 
 <h2>
 Что означает верификация?
@@ -1068,10 +1244,11 @@ alt="Знак верификации"
 
 <p>
 
-Верификация Элендорфа — это внутренняя официальная
-отметка платформы. Она предназначена исключительно
-для того, чтобы пользователи могли отличить
-официальных администраторов от обычных пользователей
+Верификация Элендорфа — это внутренняя
+официальная отметка платформы. Она создана
+исключительно для того, чтобы пользователи
+могли отличить официальных представителей
+администрации от обычных пользователей
 и возможных поддельных аккаунтов.
 
 </p>
@@ -1081,12 +1258,12 @@ alt="Знак верификации"
 
 
 <!-- =====================================================
-     ТЕКУЩАЯ АДМИНИСТРАЦИЯ
+     ADMINISTRATION
 ===================================================== -->
 
-<div class="verify-section-title">
+<div class="section-title">
 
-<div class="kicker">
+<div class="section-kicker">
 Администрация платформы
 </div>
 
@@ -1099,7 +1276,6 @@ alt="Знак верификации"
 </p>
 
 </div>
-
 
 
 <section class="admins">
@@ -1115,7 +1291,7 @@ alt="Знак верификации"
 <div class="admin-top">
 
 
-<div class="admin-avatar">
+<div class="avatar">
 T
 </div>
 
@@ -1133,12 +1309,7 @@ type="button"
 data-admin="TheKoloradiks"
 aria-label="Проверить верификацию"
 >
-
-<img
-src="images/verification.webp"
-alt="Верифицирован"
->
-
+✓
 </button>
 
 </div>
@@ -1171,29 +1342,23 @@ Telegram: @TheKoloradiks
 
 <div class="actions">
 
-
 <a
 href="https://t.me/TheKoloradiks"
 target="_blank"
 rel="noopener noreferrer"
 class="button telegram"
 >
-
 Написать в Telegram →
-
 </a>
 
 
 <button
 type="button"
-class="button details verify-button-open"
+class="button details"
 data-admin="TheKoloradiks"
 >
-
 О верификации
-
 </button>
-
 
 </div>
 
@@ -1212,7 +1377,7 @@ data-admin="TheKoloradiks"
 <div class="admin-top">
 
 
-<div class="admin-avatar">
+<div class="avatar">
 X
 </div>
 
@@ -1230,12 +1395,7 @@ type="button"
 data-admin="Xsstone"
 aria-label="Проверить верификацию"
 >
-
-<img
-src="images/verification.webp"
-alt="Верифицирован"
->
-
+✓
 </button>
 
 </div>
@@ -1268,29 +1428,23 @@ Telegram: @Xsstone
 
 <div class="actions">
 
-
 <a
 href="https://t.me/Xsstone"
 target="_blank"
 rel="noopener noreferrer"
 class="button telegram"
 >
-
 Написать в Telegram →
-
 </a>
 
 
 <button
 type="button"
-class="button details verify-button-open"
+class="button details"
 data-admin="Xsstone"
 >
-
 О верификации
-
 </button>
-
 
 </div>
 
@@ -1303,46 +1457,45 @@ data-admin="Xsstone"
 
 
 <!-- =====================================================
-     КАК РАСПОЗНАТЬ
+     SECURITY
 ===================================================== -->
 
-<div class="verify-section-title">
+<div class="section-title">
 
-<div class="kicker">
+<div class="section-kicker">
 Безопасность
 </div>
 
 <h2>
-Как распознать официального администратора?
+Как распознать администратора?
 </h2>
 
 <p>
-Несколько простых рекомендаций для пользователей
+Проверяйте несколько признаков перед общением
 </p>
 
 </div>
 
 
+<section class="security-list">
 
-<section class="verify-list">
 
+<div class="security-item">
 
-<div class="verify-list-item">
-
-<div class="verify-list-number">
+<div class="number">
 ✓
 </div>
 
-<div class="verify-list-content">
+<div>
 
 <strong>
-Проверяйте отметку
+Проверяйте синюю галочку
 </strong>
 
 <p>
-У официальных администраторов, указанных
-на этой странице, рядом с именем находится
-специальная синяя отметка верификации.
+Официальные администраторы, указанные
+на этой странице, имеют синюю отметку
+рядом со своим именем.
 </p>
 
 </div>
@@ -1351,22 +1504,22 @@ data-admin="Xsstone"
 
 
 
-<div class="verify-list-item">
+<div class="security-item">
 
-<div class="verify-list-number">
+<div class="number">
 1
 </div>
 
-<div class="verify-list-content">
+<div>
 
 <strong>
-Сверяйте точный никнейм
+Сверяйте никнейм
 </strong>
 
 <p>
-Всегда проверяйте точное написание Telegram-никнейма.
-Поддельные аккаунты могут использовать имена,
-визуально похожие на настоящие.
+Обращайте внимание на точное написание
+Telegram-никнейма. Поддельные аккаунты
+могут использовать похожие имена.
 </p>
 
 </div>
@@ -1375,13 +1528,13 @@ data-admin="Xsstone"
 
 
 
-<div class="verify-list-item">
+<div class="security-item">
 
-<div class="verify-list-number">
+<div class="number">
 2
 </div>
 
-<div class="verify-list-content">
+<div>
 
 <strong>
 Не передавайте секретные данные
@@ -1389,8 +1542,7 @@ data-admin="Xsstone"
 
 <p>
 Никому не передавайте пароли, коды входа,
-коды подтверждения Telegram и другие
-конфиденциальные данные.
+коды Telegram или другие конфиденциальные данные.
 </p>
 
 </div>
@@ -1399,23 +1551,22 @@ data-admin="Xsstone"
 
 
 
-<div class="verify-list-item">
+<div class="security-item">
 
-<div class="verify-list-number">
+<div class="number">
 3
 </div>
 
-<div class="verify-list-content">
+<div>
 
 <strong>
-Проверяйте информацию на сайте
+Сверяйте информацию с сайтом
 </strong>
 
 <p>
-Если кто-либо утверждает, что является
-администратором Элендорфа, сравните его
-данные с текущим списком администрации
-на этой странице.
+Если человек заявляет, что является
+администратором Элендорфа, сравните
+его данные с информацией на этой странице.
 </p>
 
 </div>
@@ -1428,13 +1579,13 @@ data-admin="Xsstone"
 
 
 <!-- =====================================================
-     ПРЕДУПРЕЖДЕНИЕ
+     WARNING
 ===================================================== -->
 
 <section class="warning">
 
 <h3>
-⚠️ Внимание: остерегайтесь мошенников
+⚠️ Осторожно: мошенники
 </h3>
 
 <p>
@@ -1456,10 +1607,10 @@ data-admin="Xsstone"
 
 
 <!-- =====================================================
-     ПОДДЕРЖКА
+     SUPPORT
 ===================================================== -->
 
-<section class="support-card">
+<section class="support">
 
 <h2>
 Нужна помощь?
@@ -1467,9 +1618,8 @@ data-admin="Xsstone"
 
 <p>
 
-Если вы обнаружили ошибку, столкнулись
-с проблемой или хотите сообщить
-о подозрительном аккаунте, обратитесь
+Если вы обнаружили проблему, ошибку
+или подозрительный аккаунт, обратитесь
 в техническую поддержку Элендорфа.
 
 </p>
@@ -1479,9 +1629,7 @@ data-admin="Xsstone"
 href="support.html"
 class="button telegram"
 >
-
 Открыть техническую поддержку →
-
 </a>
 
 </section>
@@ -1489,25 +1637,24 @@ class="button telegram"
 
 
 <!-- =====================================================
-     НАВИГАЦИЯ
+     LINKS
 ===================================================== -->
 
-<div class="verify-navigation">
+<div class="page-links">
 
 <a
 href="index.html"
-class="primary"
+class="main-link"
 >
-
 ← Вернуться на главную
-
 </a>
 
+<a href="government.html">
+Государственная власть
+</a>
 
 <a href="support.html">
-
-🛠 Техническая поддержка
-
+Техническая поддержка
 </a>
 
 </div>
@@ -1554,12 +1701,16 @@ class="primary"
 
 © 2026 Королевство Элендорф
 
+<br>
+
+Виртуальное государство · Minecraft-проект
+
 </footer>
 
 
 
 <!-- =====================================================
-     МОДАЛЬНОЕ ОКНО
+     MODAL
 ===================================================== -->
 
 <div
@@ -1571,30 +1722,22 @@ id="verificationModal"
 class="modal"
 role="dialog"
 aria-modal="true"
-aria-labelledby="modalTitle"
 >
 
 
-<div class="modal-icon">
-
-<img
-src="images/verification.webp"
-alt="Верификация"
->
-
+<div class="modal-check">
+✓
 </div>
 
 
-<h2 id="modalTitle">
+<h2>
 Официальная верификация
 </h2>
 
 
 <p id="modalText">
-
 Пользователь является официальным
 Главным Администратором платформы Элендорф.
-
 </p>
 
 
@@ -1606,21 +1749,18 @@ alt="Верификация"
 
 <br><br>
 
-Белая галочка внутри синего знака
-не означает, что владелец аккаунта
-является знаменитой, публичной или
-общественно известной личностью.
+Данная отметка не означает, что владелец
+аккаунта является знаменитой, публичной
+или общественно известной личностью.
 
 <br><br>
 
-Отметка создана исключительно для
-идентификации официальных представителей
-администрации Элендорфа.
-
-Она помогает пользователям отличать
-официальные аккаунты администрации
-от обычных пользователей и возможных
-поддельных аккаунтов.
+Она создана исключительно для того,
+чтобы пользователи могли определить
+официальных представителей администрации
+Элендорфа и отличить их от обычных
+пользователей или возможных поддельных
+аккаунтов.
 
 </div>
 
@@ -1630,9 +1770,7 @@ type="button"
 class="close-modal"
 id="closeModal"
 >
-
 Понятно
-
 </button>
 
 
@@ -1645,14 +1783,11 @@ id="closeModal"
 <script>
 
 /* =====================================================
-   МОДАЛЬНОЕ ОКНО ВЕРИФИКАЦИИ
+   ВЕРИФИКАЦИЯ
 ===================================================== */
 
 const modal =
 document.getElementById("verificationModal");
-
-const modalTitle =
-document.getElementById("modalTitle");
 
 const modalText =
 document.getElementById("modalText");
@@ -1661,28 +1796,22 @@ const closeModal =
 document.getElementById("closeModal");
 
 
-const verificationButtons =
+const buttons =
 document.querySelectorAll(
-    ".verify-button, .verify-button-open"
+    ".verify-button, .details"
 );
 
 
-verificationButtons.forEach(function(button) {
+buttons.forEach(function(button) {
 
     button.addEventListener("click", function() {
 
         const admin =
             this.getAttribute("data-admin");
 
-
-        modalTitle.textContent =
-            "Официальная верификация";
-
-
         modalText.textContent =
             admin +
             " указан как официальный Главный Администратор платформы Элендорф.";
-
 
         modal.classList.add("active");
 
@@ -1697,7 +1826,7 @@ verificationButtons.forEach(function(button) {
    ЗАКРЫТИЕ
 ===================================================== */
 
-function closeVerificationModal() {
+function closeVerification() {
 
     modal.classList.remove("active");
 
@@ -1708,27 +1837,21 @@ function closeVerificationModal() {
 
 closeModal.addEventListener(
     "click",
-    closeVerificationModal
+    closeVerification
 );
 
-
-/* Закрытие при клике вне окна */
 
 modal.addEventListener(
     "click",
     function(event) {
 
         if (event.target === modal) {
-
-            closeVerificationModal();
-
+            closeVerification();
         }
 
     }
 );
 
-
-/* Закрытие клавишей ESC */
 
 document.addEventListener(
     "keydown",
@@ -1738,9 +1861,7 @@ document.addEventListener(
             event.key === "Escape" &&
             modal.classList.contains("active")
         ) {
-
-            closeVerificationModal();
-
+            closeVerification();
         }
 
     }
@@ -1750,5 +1871,4 @@ document.addEventListener(
 
 
 </body>
-
 </html>
